@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hakuna Matata Resto — Menu</title>
+  <meta name="description"
+    content="Hakuna Matata Restaurant - No Worries, Just Good Food. Browse our premium menu featuring appetizers, salads, meals, sandwiches, pasta, and burgers.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700;800;900&family=Cairo:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════ */
+    :root {
+      --bg: #050302;
+      --bg2: #0a0604;
+      --bg3: #120b08;
+      --bg4: #1a100b;
+      --surface: rgba(20, 14, 10, 0.6);
+      --surface2: rgba(30, 20, 15, 0.7);
+      --gold: #c8900a;
+      --gold-lt: #f0c040;
+      --gold-dim: rgba(200, 144, 10, .15);
+      --gold-glow: rgba(200, 144, 10, .08);
+      --cream: #f0e6d0;
+      --cream2: #c0a878;
+      --cream3: #8a7050;
+      --red: #6a1010;
+      --red2: #3a0808;
+      --border: rgba(200, 144, 10, .12);
+      --border2: rgba(200, 144, 10, .28);
+      --r: 16px;
+      --r2: 24px;
+      --shadow-sm: 0 2px 12px rgba(0, 0, 0, .3);
+      --shadow-md: 0 8px 32px rgba(0, 0, 0, .5);
+      --shadow-lg: 0 20px 60px rgba(0, 0, 0, .7);
+      --shadow-gold: 0 0 40px rgba(200, 144, 10, .15);
+      --transition: .35s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Cairo', 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      letter-spacing: 0.3px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 3px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ═══════════════════════════════════
+   PARTICLES BG
+═══════════════════════════════════ */
+    #particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* ═══════════════════════════════════
+   NAVBAR
+═══════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 500;
+      height: 70px;
+      background: rgba(8, 6, 4, .85);
+      backdrop-filter: blur(24px) saturate(1.5);
+      -webkit-backdrop-filter: blur(24px) saturate(1.5);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(20px, 4vw, 48px);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav.scrolled {
+      background: rgba(5, 3, 2, .92);
+      backdrop-filter: blur(32px) saturate(1.8);
+      -webkit-backdrop-filter: blur(32px) saturate(1.8);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .6);
+      border-bottom: 1px solid var(--border2);
+      height: 60px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-brand img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      object-fit: cover;
+    }
+
+    .nav-brand-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--gold-lt);
+      letter-spacing: 1px;
+    }
+
+    .nav-brand-text span {
+      color: var(--gold);
+    }
+
+    .nav-back {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: 1px solid var(--border2);
+      color: var(--gold-lt);
+      cursor: pointer;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      transition: all var(--transition);
+    }
+
+    .nav-back:hover {
+      background: var(--gold-dim);
+    }
+
+    .nav-back svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .nav-back.show {
+      display: flex;
+    }
+
+    /* ═══════════════════════════════════
+   HERO
+═══════════════════════════════════ */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px clamp(20px, 5vw, 60px) 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 40%, rgba(200, 144, 10, .06) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 50% 90%, rgba(106, 16, 16, .15) 0%, transparent 60%);
+    }
+
+    .hero-logo {
+      width: clamp(140px, 22vw, 220px);
+      height: clamp(140px, 22vw, 220px);
+      border-radius: 50%;
+      border: 2px solid rgba(200, 144, 10, .4);
+      padding: 8px;
+      background: linear-gradient(135deg, rgba(200, 144, 10, .1), transparent);
+      object-fit: cover;
+      box-shadow: 0 0 60px rgba(200, 144, 10, .2), 0 0 120px rgba(200, 144, 10, .1), inset 0 0 30px rgba(200, 144, 10, .1);
+      margin-bottom: clamp(24px, 4vw, 36px);
+      animation: logoPulse 5s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-logo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    @keyframes logoPulse {
+
+      0%,
+      100% {
+        transform: translateY(0);
+        box-shadow: 0 0 60px rgba(200, 144, 10, .2), 0 0 120px rgba(200, 144, 10, .1), inset 0 0 30px rgba(200, 144, 10, .1);
+      }
+
+      50% {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 80px rgba(200, 144, 10, .35), 0 0 160px rgba(200, 144, 10, .15), inset 0 0 40px rgba(200, 144, 10, .15);
+      }
+    }
+
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(10px, 1.6vw, 13px);
+      font-weight: 600;
+      letter-spacing: clamp(6px, 2vw, 14px);
+      color: var(--gold);
+      opacity: .7;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 9vw, 100px);
+      font-weight: 900;
+      color: var(--gold-lt);
+      line-height: 1;
+      letter-spacing: 1px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title em {
+      display: block;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold);
+      font-size: clamp(20px, 4.5vw, 52px);
+      margin-top: 8px;
+    }
+
+    .hero-sub {
+      font-family: 'Cairo', sans-serif;
+      font-size: clamp(14px, 2.2vw, 20px);
+      font-weight: 300;
+      color: var(--cream2);
+      letter-spacing: 2px;
+      margin: 18px 0 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: min(300px, 80vw);
+      margin: 0 auto;
+    }
+
+    .div-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .div-gem {
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 36px;
+      padding: 16px 42px;
+      background: linear-gradient(135deg, var(--gold), #d49c15, #f0be38);
+      background-size: 200% auto;
+      color: var(--bg);
+      font-family: 'Cairo', sans-serif;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(200, 144, 10, .3);
+      transition: all 0.5s;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .hero-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transform: skewX(-20deg);
+      transition: 0.5s;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(200, 144, 10, .5);
+      background-position: right center;
+    }
+
+    .hero-cta:hover::before {
+      left: 150%;
+    }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--gold);
+      opacity: .5;
+      animation: bobDown 2.5s ease-in-out infinite;
+      font-size: 24px;
+    }
+
+    @keyframes bobDown {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0)
+      }
+
+      55% {
+        transform: translateX(-50%) translateY(10px)
+      }
+    }
+
+    /* ═══════════════════════════════════
+   CATEGORIES GRID
+═══════════════════════════════════ */
+    #categories {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: clamp(40px, 6vw, 80px) clamp(16px, 4vw, 48px);
+    }
+
+    .cats-header {
+      text-align: center;
+      margin-bottom: clamp(32px, 5vw, 56px);
+    }
+
+    .cats-header .sec-tag {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 6px;
+      margin-bottom: 10px;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .cats-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 900;
+      color: var(--gold-lt);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .cats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr));
+      gap: clamp(16px, 2.5vw, 24px);
+    }
+
+    .cat-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--r2);
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      aspect-ratio: 16/10;
+      transition: all .5s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .cat-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 20%, rgba(5, 3, 2, .95) 100%);
+      z-index: 2;
+      transition: all .5s;
+    }
+
+    .cat-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      border-color: rgba(200, 144, 10, .4);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, .8), 0 0 40px rgba(200, 144, 10, .2);
+    }
+
+    .cat-card:hover::before {
+      background: linear-gradient(180deg, transparent 10%, rgba(5, 3, 2, .9) 100%);
+    }
+
+    .cat-card-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface2);
+      z-index: 1;
+    }
+
+    .cat-card-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all .6s;
+    }
+
+    .cat-card-bg .placeholder-icon {
+      width: 60px;
+      height: 60px;
+      color: rgba(200, 144, 10, .25);
+      transition: all .5s;
+    }
+
+    .cat-card:hover .cat-card-bg img {
+      transform: scale(1.1) rotate(-1deg);
+    }
+
+    .cat-card:hover .cat-card-bg .placeholder-icon {
+      transform: scale(1.15);
+      color: rgba(200, 144, 10, .5);
+    }
+
+    .cat-card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: clamp(20px, 3vw, 32px);
+      z-index: 3;
+    }
+
+    .cat-card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 4vw, 34px);
+      font-weight: 900;
+      color: var(--gold-lt);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .cat-card-name-ar {
+      font-family: 'Cairo', sans-serif;
+      font-size: clamp(16px, 2.5vw, 20px);
+      font-weight: 800;
+      color: var(--cream2);
+      margin-bottom: 10px;
+    }
+
+    .cat-card-count {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 1px;
+      background: var(--gold-dim);
+      border: 1px solid var(--border2);
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+
+    .cat-card-arrow {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      border: 1px solid var(--border2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      transition: all var(--transition);
+    }
+
+    .cat-card:hover .cat-card-arrow {
+      background: var(--gold);
+    }
+
+    .cat-card-arrow svg {
+      width: 18px;
+      height: 18px;
+      color: var(--gold-lt);
+      transition: color var(--transition);
+    }
+
+    .cat-card:hover .cat-card-arrow svg {
+      color: var(--bg);
+    }
+
+    /* ═══════════════════════════════════
+   CATEGORY VIEW (Items)
+═══════════════════════════════════ */
+    #categoryView {
+      display: none;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 90px clamp(16px, 4vw, 48px) clamp(40px, 6vw, 80px);
+      min-height: 100vh;
+      animation: fadeSlideUp .5s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #categoryView.show {
+      display: block;
+    }
+
+    .cv-header {
+      text-align: center;
+      margin-bottom: clamp(28px, 4vw, 48px);
+      padding-top: 10px;
+    }
+
+    .cv-header .cv-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 16px;
+      color: var(--gold);
+      opacity: 0.8;
+    }
+
+    .cv-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(34px, 7vw, 60px);
+      font-weight: 900;
+      color: var(--gold-lt);
+      margin-bottom: 4px;
+    }
+
+    .cv-header .cv-ar {
+      font-family: 'Cairo', sans-serif;
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 800;
+      color: var(--cream2);
+      margin-bottom: 16px;
+    }
+
+    /* ─── Item Cards ─── */
+    .items-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr));
+      gap: clamp(14px, 2vw, 20px);
+      margin-bottom: clamp(24px, 4vw, 40px);
+    }
+
+    .item-card {
+      background: var(--surface);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      display: flex;
+      overflow: hidden;
+      transition: all .4s cubic-bezier(.4, 0, .2, 1);
+      animation: itemIn .5s cubic-bezier(.4, 0, .2, 1) both;
+    }
+
+    .item-card:nth-child(1) {
+      animation-delay: .05s;
+    }
+
+    .item-card:nth-child(2) {
+      animation-delay: .10s;
+    }
+
+    .item-card:nth-child(3) {
+      animation-delay: .15s;
+    }
+
+    .item-card:nth-child(4) {
+      animation-delay: .20s;
+    }
+
+    .item-card:nth-child(5) {
+      animation-delay: .25s;
+    }
+
+    .item-card:nth-child(6) {
+      animation-delay: .30s;
+    }
+
+    .item-card:nth-child(7) {
+      animation-delay: .35s;
+    }
+
+    .item-card:nth-child(8) {
+      animation-delay: .40s;
+    }
+
+    @keyframes itemIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .item-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(200, 144, 10, .35);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .6), 0 0 30px rgba(200, 144, 10, .1);
+      background: rgba(30, 20, 15, .75);
+    }
+
+    .item-img {
+      width: clamp(110px, 25%, 140px);
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg3);
+    }
+
+    .item-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .item-card:hover .item-img img {
+      transform: scale(1.08);
+    }
+
+    .item-img-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--bg3), var(--bg4));
+      color: rgba(200, 144, 10, .2);
+    }
+
+    .item-img-placeholder svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .item-img-placeholder span {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .item-body {
+      flex: 1;
+      min-width: 0;
+      padding: clamp(14px, 2.5vw, 20px);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .item-names {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .item-en {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(14px, 2.2vw, 17px);
+      font-weight: 700;
+      color: var(--gold-lt);
+      line-height: 1.25;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .item-ar {
+      font-family: 'Cairo', sans-serif;
+      font-size: clamp(14px, 2vw, 16px);
+      font-weight: 800;
+      color: var(--cream);
+      white-space: nowrap;
+    }
+
+    .item-desc {
+      font-family: 'Cairo', sans-serif;
+      font-size: clamp(11.5px, 1.5vw, 13px);
+      font-weight: 400;
+      color: var(--cream3);
+      line-height: 1.8;
+      direction: rtl;
+      text-align: right;
+      flex: 1;
+    }
+
+    .item-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+    }
+
+    .item-price {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 3vw, 24px);
+      font-weight: 700;
+      color: var(--gold-lt);
+      background: linear-gradient(135deg, rgba(200, 144, 10, .12), rgba(200, 144, 10, .04));
+      border: 1px solid rgba(200, 144, 10, .22);
+      padding: 4px 18px;
+      border-radius: 30px;
+    }
+
+    .item-price::after {
+      content: ' EGP';
+      font-size: .55em;
+      color: var(--gold);
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    /* ─── Extras ─── */
+    .extras-box {
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      background: var(--surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      animation: itemIn .6s .4s both;
+      box-shadow: var(--shadow-md);
+    }
+
+    .extras-top {
+      background: linear-gradient(135deg, var(--red2), var(--red), var(--red2));
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .extras-top-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(200, 144, 10, .3);
+    }
+
+    .extras-top-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(15px, 2.4vw, 20px);
+      font-weight: 700;
+      color: var(--gold-lt);
+      letter-spacing: 5px;
+      white-space: nowrap;
+    }
+
+    .extras-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 1fr));
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .extras-item {
+      background: var(--surface);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      direction: rtl;
+      transition: background var(--transition);
+    }
+
+    .extras-item:hover {
+      background: var(--surface2);
+    }
+
+    .extras-item-name {
+      font-family: 'Cairo', sans-serif;
+      font-size: clamp(12px, 1.8vw, 14px);
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .extras-item-price {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(12px, 1.8vw, 14px);
+      font-weight: 700;
+      color: var(--gold-lt);
+      background: rgba(200, 144, 10, .1);
+      border: 1px solid rgba(200, 144, 10, .2);
+      padding: 2px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* ═══════════════════════════════════
+   FOOTER
+═══════════════════════════════════ */
+    footer {
+      text-align: center;
+      border-top: 1px solid var(--border);
+      padding: clamp(40px, 7vw, 70px) 24px clamp(30px, 5vw, 50px);
+      margin-top: clamp(30px, 5vw, 50px);
+      position: relative;
+    }
+
+    .ft-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 5vw, 40px);
+      font-weight: 900;
+      color: var(--gold-lt);
+      margin-bottom: 8px;
+    }
+
+    .ft-logo span {
+      color: var(--gold);
+    }
+
+    .ft-tag {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(14px, 2.2vw, 18px);
+      color: var(--cream2);
+      letter-spacing: 2px;
+    }
+
+    .ft-copy {
+      margin-top: 24px;
+      font-size: 11px;
+      color: rgba(200, 144, 10, .3);
+      letter-spacing: 3px;
+    }
+
+    /* ═══════════════════════════════════
+   BACK TO TOP
+═══════════════════════════════════ */
+    #btt {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), #e0a820);
+      color: var(--bg);
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 24px rgba(200, 144, 10, .4);
+      transition: all var(--transition);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 400;
+    }
+
+    #btt.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #btt:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(200, 144, 10, .55);
+    }
+
+    /* ═══════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════ */
+
+    /* ─── Large Desktop (>1200px) — handled by clamp() defaults ─── */
+
+    /* ─── Tablet Landscape / Small Laptop ─── */
+    @media (max-width: 1024px) {
+      .cats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .items-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #categories {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      #categoryView {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+
+    /* ─── Tablet Portrait ─── */
+    @media (max-width: 768px) {
+      .nav {
+        height: 62px;
+        padding: 0 16px;
+      }
+
+      .nav.scrolled {
+        height: 56px;
+      }
+
+      .nav-brand img {
+        width: 36px;
+        height: 36px;
+      }
+
+      .nav-brand-text {
+        font-size: 16px;
+      }
+
+      .nav-back {
+        padding: 6px 14px;
+        font-size: 12px;
+      }
+
+      .hero {
+        min-height: 90svh;
+        padding: 80px 20px 40px;
+      }
+
+      .hero-logo {
+        width: 160px;
+        height: 160px;
+        padding: 6px;
+      }
+
+      .hero-cta {
+        padding: 14px 32px;
+        font-size: 13px;
+        letter-spacing: 3px;
+      }
+
+      .cats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .cat-card {
+        aspect-ratio: 16/10;
+      }
+
+      .cat-card-name {
+        font-size: 22px;
+      }
+
+      .cat-card-name-ar {
+        font-size: 16px;
+      }
+
+      .items-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .item-body {
+        padding: 14px;
+      }
+
+      .item-en {
+        font-size: 15px;
+      }
+
+      .item-ar {
+        font-size: 14px;
+      }
+
+      .item-price {
+        font-size: 20px;
+        padding: 4px 14px;
+      }
+
+      .extras-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      }
+
+      .cv-header h2 {
+        font-size: 36px;
+      }
+
+      .cv-header .cv-ar {
+        font-size: 20px;
+      }
+    }
+
+    /* ─── Large Phones ─── */
+    @media (max-width: 600px) {
+      .nav {
+        height: 56px;
+        padding: 0 12px;
+      }
+
+      .nav.scrolled {
+        height: 52px;
+      }
+
+      .nav-brand img {
+        width: 32px;
+        height: 32px;
+      }
+
+      .nav-brand-text {
+        font-size: 14px;
+        letter-spacing: 0;
+      }
+
+      .nav-back {
+        padding: 6px 12px;
+        font-size: 11px;
+        gap: 4px;
+      }
+
+      .nav-back svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .hero {
+        min-height: 85svh;
+        padding: 70px 16px 30px;
+      }
+
+      .hero-logo {
+        width: 130px;
+        height: 130px;
+        padding: 5px;
+        margin-bottom: 20px;
+      }
+
+      .hero-eyebrow {
+        font-size: 9px;
+        letter-spacing: 5px;
+        margin-bottom: 10px;
+      }
+
+      .hero-title {
+        font-size: 38px;
+      }
+
+      .hero-title em {
+        font-size: 18px;
+      }
+
+      .hero-sub {
+        font-size: 14px;
+        margin: 12px 0 20px;
+        letter-spacing: 1px;
+      }
+
+      .hero-cta {
+        padding: 12px 28px;
+        font-size: 12px;
+        letter-spacing: 3px;
+        margin-top: 24px;
+      }
+
+      .hero-scroll-hint {
+        bottom: 16px;
+        font-size: 20px;
+      }
+
+      .divider {
+        width: min(200px, 70vw);
+      }
+
+      .cats-header h2 {
+        font-size: 32px;
+      }
+
+      .cats-header .sec-tag {
+        letter-spacing: 4px;
+        font-size: 10px;
+      }
+
+      .cats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .cat-card {
+        aspect-ratio: 16/8;
+      }
+
+      .cat-card-content {
+        padding: 16px;
+      }
+
+      .cat-card-name {
+        font-size: 24px;
+      }
+
+      .cat-card-name-ar {
+        font-size: 15px;
+        margin-bottom: 6px;
+      }
+
+      .cat-card-count {
+        font-size: 11px;
+        padding: 3px 12px;
+      }
+
+      .cat-card-arrow {
+        width: 34px;
+        height: 34px;
+        top: 14px;
+        left: 14px;
+      }
+
+      .cat-card-arrow svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      #categoryView {
+        padding: 80px 12px 40px;
+      }
+
+      .cv-header h2 {
+        font-size: 30px;
+      }
+
+      .cv-header .cv-ar {
+        font-size: 17px;
+      }
+
+      .cv-header .cv-icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .items-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .item-card {
+        border-radius: 12px;
+      }
+
+      .item-img {
+        width: 100px;
+      }
+
+      .item-body {
+        padding: 12px;
+        gap: 6px;
+      }
+
+      .item-names {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .item-en {
+        font-size: 14px;
+      }
+
+      .item-ar {
+        font-size: 13px;
+      }
+
+      .item-desc {
+        font-size: 11px;
+        line-height: 1.7;
+      }
+
+      .item-price {
+        font-size: 18px;
+        padding: 3px 12px;
+      }
+
+      .item-price::after {
+        font-size: .5em;
+      }
+
+      .extras-box {
+        border-radius: 12px;
+      }
+
+      .extras-top {
+        padding: 12px 16px;
+      }
+
+      .extras-top-title {
+        font-size: 14px;
+        letter-spacing: 3px;
+      }
+
+      .extras-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .extras-item {
+        padding: 10px 14px;
+      }
+
+      .extras-item-name {
+        font-size: 12px;
+      }
+
+      .extras-item-price {
+        font-size: 12px;
+        padding: 2px 10px;
+      }
+
+      footer {
+        padding: 30px 16px 24px;
+      }
+
+      .ft-logo {
+        font-size: 24px;
+      }
+
+      .ft-tag {
+        font-size: 13px;
+        letter-spacing: 1px;
+      }
+
+      .ft-copy {
+        font-size: 9px;
+        letter-spacing: 2px;
+        margin-top: 16px;
+      }
+
+      #btt {
+        width: 40px;
+        height: 40px;
+        bottom: 16px;
+        left: 16px;
+        font-size: 14px;
+      }
+    }
+
+    /* ─── Small Phones ─── */
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 32px;
+      }
+
+      .hero-title em {
+        font-size: 16px;
+      }
+
+      .hero-logo {
+        width: 110px;
+        height: 110px;
+      }
+
+      .hero-sub {
+        font-size: 13px;
+      }
+
+      .cat-card {
+        aspect-ratio: 16/7;
+      }
+
+      .cat-card-name {
+        font-size: 22px;
+      }
+
+      .item-img {
+        width: 90px;
+      }
+
+      .item-en {
+        font-size: 13px;
+      }
+
+      .item-ar {
+        font-size: 12px;
+      }
+
+      .item-price {
+        font-size: 16px;
+      }
+
+      .cv-header h2 {
+        font-size: 26px;
+      }
+
+      .cv-header .cv-ar {
+        font-size: 15px;
+      }
+    }
+
+    /* ─── Very Small Screens ─── */
+    @media (max-width: 380px) {
+      .nav-brand-text {
+        font-size: 13px;
+      }
+
+      .nav-brand img {
+        width: 28px;
+        height: 28px;
+      }
+
+      .hero-logo {
+        width: 100px;
+        height: 100px;
+      }
+
+      .hero-title {
+        font-size: 28px;
+      }
+
+      .hero-title em {
+        font-size: 14px;
+      }
+
+      .hero-cta {
+        padding: 10px 22px;
+        font-size: 11px;
+        letter-spacing: 2px;
+      }
+
+      .cat-card-name {
+        font-size: 20px;
+      }
+
+      .cat-card-name-ar {
+        font-size: 13px;
+      }
+
+      .item-img {
+        width: 80px;
+      }
+
+      .item-body {
+        padding: 10px;
+      }
+
+      .item-en {
+        font-size: 12px;
+      }
+
+      .item-ar {
+        font-size: 11px;
+      }
+
+      .item-desc {
+        font-size: 10.5px;
+      }
+
+      .item-price {
+        font-size: 15px;
+        padding: 2px 10px;
+      }
+
+      .extras-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .extras-item-name {
+        font-size: 11px;
+      }
+
+      .extras-item-price {
+        font-size: 11px;
+      }
+
+      .cv-header h2 {
+        font-size: 22px;
+      }
+
+      .cv-header .cv-ar {
+        font-size: 14px;
+      }
+
+      .cats-header h2 {
+        font-size: 26px;
+      }
+
+      #btt {
+        width: 36px;
+        height: 36px;
+        font-size: 12px;
+        bottom: 12px;
+        left: 12px;
+      }
+    }
+
+    /* ─── Ultra-wide screens ─── */
+    @media (min-width: 1600px) {
+
+      #categories,
+      #categoryView {
+        max-width: 1500px;
+      }
+
+      .cats-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .items-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════ PARTICLES ═══════ -->
+  <canvas id="particles"></canvas>
+
+  <!-- ═══════ NAVBAR ═══════ -->
+  <nav class="nav" id="nav">
+    <a class="nav-brand" href="#" onclick="goHome(); return false;">
+      <img src="logo.png" alt="Hakuna Matata Logo">
+      <span class="nav-brand-text">HAKUNA <span>MATATA</span></span>
+    </a>
+    <button class="nav-back" id="navBack" onclick="goHome()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <polyline points="15 18 9 12 15 6" />
+      </svg>
+      القائمة الرئيسية
+    </button>
+  </nav>
+
+  <!-- ═══════ HERO ═══════ -->
+  <section class="hero" id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-logo">
+      <img class="hero-logo-inner" src="logo.png" alt="Hakuna Matata Logo">
+    </div>
+    <p class="hero-eyebrow">— HAKUNA MATATA RESTO —</p>
+    <h1 class="hero-title">No Worries<em>Just Good Food</em></h1>
+    <p class="hero-sub">لا قلق — فقط أكل خطير</p>
+    <div class="divider">
+      <div class="div-line"></div>
+      <div class="div-gem"></div>
+      <div class="div-line"></div>
+    </div>
+    <a class="hero-cta" href="#categories" id="heroCta">EXPLORE MENU</a>
+    <div class="hero-scroll-hint">⌄</div>
+  </section>
+
+  <!-- ═══════ CATEGORIES GRID ═══════ -->
+  <section id="categories">
+    <div class="cats-header">
+      <span class="sec-tag">— قائمتنا —</span>
+      <h2>Our Menu</h2>
+      <div class="divider">
+        <div class="div-line"></div>
+        <div class="div-gem"></div>
+        <div class="div-line"></div>
+      </div>
+    </div>
+    <div class="cats-grid" id="catsGrid">
+      <!-- JS renders category cards -->
+    </div>
+  </section>
+
+  <!-- ═══════ CATEGORY ITEMS VIEW ═══════ -->
+  <div id="categoryView">
+    <div class="cv-header" id="cvHeader"></div>
+    <div class="items-grid" id="itemsGrid"></div>
+    <div id="extrasBox"></div>
+  </div>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer id="footer">
+    <div class="divider" style="max-width:240px;margin:0 auto 22px">
+      <div class="div-line"></div>
+      <div class="div-gem"></div>
+      <div class="div-line"></div>
+    </div>
+    <div class="ft-logo">HAKUNA <span>MATATA</span></div>
+    <div class="ft-tag">No Worries — Just Good Food</div>
+    <div class="ft-copy">✦ HAKUNA MATATA RESTO ✦</div>
+  </footer>
+
+  <button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲</button>
+
+  <script>
+    /* ═══════════════════════════════════
+       DATA — All items & prices preserved
+    ═══════════════════════════════════ */
+    const MENU = [
+      {
+        id: 'appetizers', name: 'Appetizers', nameAr: 'المقبلات', img: 'images/categories/appetizers.png',
+        items: [
+          { en: 'CRISPY FRIES', ar: 'كرسبي فرايز', desc: 'فرينش فرايز - فراخ ستريبس - صوص جبنة - صوص رانش - توابل كيجين - سويت كورن - زيتون', price: 95, img: 'images/items/appetizers_crispy_fries.png' },
+          { en: 'SAUSAGE FRIES', ar: 'فرايز بالسجق', desc: 'سجق ارميني - فرينش فرايز - فلفل سبايسي - بصل مفروم - ثوم - صوص سموكد - صوص جبنة', price: 105, img: 'images/items/appetizers_sausage_fries.png' },
+          { en: 'HOT DOG FRIES', ar: 'فرايز هوت دوج', desc: 'فرينش فرايز - هوت دوج - صوص جبنة - هالبينو', price: 105, img: 'images/items/appetizers_hotdog_fries.png' },
+          { en: 'KOFTA KUNAFA', ar: 'كفتة كنافة', desc: 'كفتة - كنافة - صوص طحينة سيراتشا', price: 75, img: 'images/items/appetizers_kofta_kunafa.png' },
+          { en: 'CURLY FRIES', ar: 'كيرلي فرايز', desc: 'كيرلي فرايز - صوص حسب الاختيار', price: 60, img: 'images/items/appetizers_curly_fries.png' },
+          { en: 'CHILI FRIES', ar: 'تشيلي فرايز', desc: 'تشيلي دي كارني - فرينش فرايز - هالبينو - فاصوليا حمراء - سويت كورن - صوص جبنة', price: 75, img: 'images/items/appetizers_chili_fries.png' },
+          { en: 'CHICKEN STRIPS', ar: 'تشيكن ستريبس', desc: 'صدور فراخ - بريدينج - سويت شيلي صوص - هاني ماسترد - فرينش فرايز', price: 110, img: 'images/items/appetizers_chicken_strips.png' },
+          { en: 'WINGS', ar: 'وينجز', desc: 'أجنحة - بريدينج - صوص بافلو أو باربيكيو - بصل اخضر - سمسم', price: 80, img: 'images/items/appetizers_wings.png' }
+        ],
+        extras: [
+          { name: 'صوص جبنة', price: 15 }, { name: 'صوص رانش', price: 15 }, { name: 'صوص بافلو', price: 15 },
+          { name: 'هالبينو', price: 10 }, { name: 'سويت كورن', price: 10 }, { name: 'زيتون', price: 10 }
+        ]
+      },
+      {
+        id: 'salad', name: 'Salad', nameAr: 'السلطات', img: 'images/categories/salad.png',
+        items: [
+          { en: 'MEXICAN', ar: 'ميكسيكان', desc: 'خس كابتشا - صدور فراخ مشوية - صوص رانش - بيكو دي جالو - جواكامولي - عيش تورتيلا مقلي - ورق كزبرة', price: 70, img: 'images/items/salad_mexican.png' },
+          { en: 'CAESAR', ar: 'سيزر', desc: 'خس بلدي - عيش كروتون - جبنة بارميجان - سيزر دريسينج', price: 70, img: 'images/items/salad_caesar.png' },
+          { en: 'HEALTHY SALAD', ar: 'هيلثي سلاد', desc: 'خس احمر - جرجير - كوسة مسلوقة - جزر مسلوق - فاصوليا خضراء - بروكلي - بسلة - تفاح اخضر - بيبي كورن - دريسينج', price: 60, img: 'images/items/salad_healthy.png' }
+        ],
+        extras: [
+          { name: 'صدور فراخ مشوية', price: 35 }, { name: 'جرجير', price: 10 }, { name: 'جواكامولي', price: 20 },
+          { name: 'بيكو دي جالو', price: 15 }, { name: 'كروتون', price: 10 }
+        ]
+      },
+      {
+        id: 'meals', name: 'Meals', nameAr: 'الوجبات', img: 'images/categories/meals.png',
+        items: [
+          { en: 'PARMIGIANA', ar: 'بارمجانا', desc: 'صدور فراخ - بانكو بريد - بريدينج - صوص طماطم - جبنة موزاريلا - جبنة بارميجان - بطاطس ويدج', price: 130, img: 'images/items/meals_parmigiana.png' },
+          { en: 'GRILLED CHICKEN LEMON', ar: 'جريلد تشيكن بصوص الليمون', desc: 'فراخ مشوية - صوص ليمون - مشروم - أرز أبيض', price: 145, img: 'images/items/meals_grilled_chicken_lemon.png' },
+          { en: 'MIXED GRILL', ar: 'وجبة مشاوي', desc: 'كفتة - شيش - أرز بالشعرية - طحينة', price: 145, img: 'images/items/meals_mixed_grill.png' },
+          { en: 'FAJITA', ar: 'فاهيتا', desc: 'صدور فراخ - مشروم - فلفل الوان - بصل ابيض - زيتون احمر - كاتشب - أرز أبيض', price: 125, img: 'images/items/meals_fajita.png' },
+          { en: 'SAUSAGE CASSEROLE', ar: 'طاسة سجق', desc: 'سجق - بصل ابيض - صوص طماطم - ثوم - وايت صوص - جبنة موزاريلا', price: 145, img: 'images/items/meals_sausage_casserole.png' },
+          { en: 'SEAFOOD CASSEROLE', ar: 'طاسة سي فود', desc: 'كاليماري - جمبري - سمك - ثوم - فلفل الوان - وايت صوص - موزاريلا', price: 180, img: 'images/items/meals_seafood_casserole.png' },
+          { en: 'CORDON BLEU CASSEROLE', ar: 'طاسة كوردون بلو', desc: 'كوردون بلو مقلي - وايت صوص - موزاريلا', price: 105, img: 'images/items/meals_cordon_bleu.png' }
+        ],
+        extras: [
+          { name: 'أرز', price: 20 }, { name: 'مشروم', price: 25 }, { name: 'جمبري', price: 50 },
+          { name: 'صدور فراخ', price: 35 }, { name: 'موزاريلا', price: 20 }
+        ]
+      },
+      {
+        id: 'sandwiches', name: 'Sandwiches', nameAr: 'الساندوتشات', img: 'images/categories/sandwiches.png',
+        items: [
+          { en: 'CRISPY', ar: 'كرسبي', desc: 'صدور ستريبس مقرمشة - خس - طماطم - مايونيز - عيش ساندوتش - يقدم مع بطاطس ومخلل', price: 125, img: 'images/items/sandwiches_crispy.png' },
+          { en: 'MATATA NASHVILLE', ar: 'ماتاتا ناجفيل', desc: 'صدور فراخ مقرمشة - صوص ناجفيل - صوص جبنة - عيش ساندوتش - يقدم مع بطاطس ومخلل', price: 150, img: 'images/items/sandwiches_matata_nashville.png' },
+          { en: 'PESTO CHICKEN', ar: 'بيستو فراخ', desc: 'صدور فراخ مشوية - بيستو صوص - جرجير - جبنة موزاريلا - عيش ساندوتش - يقدم مع بطاطس ومخلل', price: 150, img: 'images/items/sandwiches_pesto_chicken.png' },
+          { en: 'SHRIMP CRAB', ar: 'شريمب كراب', desc: 'جمبري مقلي - صوص رانش - خس احمر - جرجير - كراب ستيك - كراب صوص - عيش ساندوتش - يقدم مع بطاطس ومخلل', price: 160, img: 'images/items/sandwiches_shrimp_crab.png' },
+          { en: 'HAWAWSHI', ar: 'حواوشي', desc: 'لحم حواوشي - عيش بلدي - صوص طحينة - يقدم مع بطاطس ومخلل', price: 75, img: 'images/items/sandwiches_hawawshi.png' },
+          { en: 'KOFTA ROLL', ar: 'كفتة رول', desc: 'كفتة - طحينة - بصل احمر بالسماق - جرجير - يقدم مع بطاطس ومخلل', price: 100, img: 'images/items/sandwiches_kofta_roll.png' },
+          { en: 'CHICKEN TACO', ar: 'تاكو فراخ', desc: 'شرايح فراخ - توابل كيجين - فلفل الوان - بصل ابيض - مشروم - موزاريلا - هالبينو - ساور كريم - عيش تورتيلا - يقدم مع بطاطس ومخلل', price: 105, img: 'images/items/sandwiches_chicken_taco.png' },
+          { en: 'BEEF TACO', ar: 'تاكو لحم', desc: 'لحم مفروم - موزاريلا - هالبينو - ساور كريم - عيش تورتيلا - يقدم مع بطاطس ومخلل', price: 120, img: 'images/items/sandwiches_beef_taco.png' }
+        ],
+        extras: [
+          { name: 'بيف بيكون', price: 25 }, { name: '٢ موتزريلا استيكس', price: 25 },
+          { name: '٢ حلقات بصل', price: 20 }, { name: 'اكسترا بطاطس', price: 25 },
+          { name: 'تشيز', price: 20 }, { name: 'تركي مدخن', price: 15 },
+          { name: 'مشروم', price: 25 }, { name: 'هالبينو', price: 10 }
+        ]
+      },
+      {
+        id: 'pasta', name: 'Pasta', nameAr: 'الباستا', img: 'images/categories/pasta.png',
+        items: [
+          { en: 'ALFREDO', ar: 'الفريدو', desc: 'بينا باستا - وايت صوص - مشروم - صدور فراخ - ثوم - زبدة', price: 110, img: 'images/items/pasta_alfredo.png' },
+          { en: 'SPICY SAUSAGE', ar: 'سبايسي سجق', desc: 'بينا باستا - سجق ارميني - فلفل حار - طماطم شيري - بصل اخضر - صوص طماطم', price: 100, img: 'images/items/pasta_spicy_sausage.png' },
+          { en: 'CAJUN SHRIMP', ar: 'جمبري كيجين', desc: 'بينا باستا - جمبري - صوص كيجين - ثوم - زبدة', price: 130, img: 'images/items/pasta_cajun_shrimp.png' },
+          { en: 'PESTO CHICKEN', ar: 'بيستو فراخ', desc: 'بينا باستا - بيستو صوص - وايت صوص - صدور فراخ مشوية', price: 110, img: 'images/items/pasta_pesto_chicken.png' },
+          { en: 'ARRABBIATA', ar: 'اربيلتا', desc: 'بينا باستا - طماطم شيري - فلفل الوان - صوص طماطم - زيتون - ثوم', price: 85, img: 'images/items/pasta_arrabbiata.png' },
+          { en: 'CHEESY PASTA & NUGGETS', ar: 'تشيزي باستا مع ناجتس', desc: 'زيتي باستا - ميكس تشيز - شيدر مطبوخ - ناجتس', price: 125, img: 'images/items/pasta_cheesy_pasta_nuggets.png' }
+        ],
+        extras: [
+          { name: 'مشروم', price: 25 }, { name: 'جمبري', price: 50 },
+          { name: 'صدور فراخ', price: 35 }, { name: 'سجق ارميني', price: 30 },
+          { name: 'تشيز', price: 20 }
+        ]
+      },
+      {
+        id: 'burgers', name: 'Burgers', nameAr: 'البرجر', img: 'images/categories/burgers.png',
+        items: [
+          { en: 'JUICY LUCY', ar: 'جوسي لوسي', desc: 'لحم برجر - صوص شيدر - بيف بيكون - بصل مكرمل - بيج تيستي صوص - برجر بان - يقدم مع بطاطس', price: 175, img: 'images/items/burgers_juicy_lucy.png' },
+          { en: 'CRISPY CHICKEN BURGER', ar: 'فراخ كرسبي', desc: 'صدور فراخ مقرمشة - خس - طماطم - خيار مخلل - صوص جبنة - مايونيز - برجر بان - يقدم مع بطاطس', price: 150, img: 'images/items/burgers_crispy_chicken.png' },
+          { en: 'MUSHROOM BURGER', ar: 'مشروم برجر', desc: 'لحم برجر - مشروم - بيف بيكون - موزاريلا ستيك - اناناس - سموكد سبايسي مايو - برجر بان - يقدم مع بطاطس', price: 160, img: 'images/items/burgers_mushroom.png' },
+          { en: 'BB BLUE', ar: 'بي بي بلو', desc: 'لحم برجر - بيف بيكون - حلقات بصل مقلي - موزاريلا ستيك - بلو تشيز صوص - كريمي تشيز - برجر بان - يقدم مع بطاطس', price: 160, img: 'images/items/burgers_bb_blue.png' },
+          { en: 'OLD SCHOOL', ar: 'اولد سكول', desc: 'لحم برجر - خس - طماطم - بصل - خيار مخلل - مايونيز - جبنة شرايح - برجر بان - يقدم مع بطاطس', price: 150, img: 'images/items/burgers_old_school.png' },
+          { en: 'BEEF CROISSANT', ar: 'كرواسون لحم', desc: 'كرواسون - لحم برجر - كريمي تشيز - بلو بيري - موزاريلا ستيك - بسطرمة - يقدم مع بطاطس', price: 160, img: 'images/items/burgers_beef_croissant.png' },
+          { en: 'CHICKEN CROISSANT', ar: 'كرواسون فراخ', desc: 'كرواسون - صدور فراخ مقرمشة - كريمي تشيز - بلو بيري - موزاريلا ستيك - بسطرمة - يقدم مع بطاطس', price: 160, img: 'images/items/burgers_chicken_croissant.png' }
+        ],
+        extras: [
+          { name: 'بيف بيكون', price: 25 }, { name: '٢ موتزريلا استيكس', price: 25 },
+          { name: '٢ حلقات بصل', price: 20 }, { name: 'اكسترا بطاطس', price: 25 },
+          { name: 'تشيز', price: 20 }, { name: 'تركي مدخن', price: 15 },
+          { name: 'مشروم', price: 25 }, { name: 'هالبينو', price: 10 }
+        ]
+      }
+    ];
+
+    /* ═══════════════════════════════════
+       PARTICLES
+    ═══════════════════════════════════ */
+    (function () {
+      const c = document.getElementById('particles');
+      const ctx = c.getContext('2d');
+      let w, h, pts = [];
+      function resize() { w = c.width = innerWidth; h = c.height = innerHeight; }
+      resize(); addEventListener('resize', resize);
+      for (let i = 0; i < 50; i++) pts.push({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
+        r: Math.random() * 2 + .5, o: Math.random() * .25 + .05
+      });
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        pts.forEach(p => {
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+          if (p.y < 0) p.y = h; if (p.y > h) p.y = 0;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(200,144,10,${p.o})`;
+          ctx.fill();
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    /* ═══════════════════════════════════
+       RENDER
+    ═══════════════════════════════════ */
+    const catsGrid = document.getElementById('catsGrid');
+    const catView = document.getElementById('categoryView');
+    const cvHeader = document.getElementById('cvHeader');
+    const itemsGrid = document.getElementById('itemsGrid');
+    const extrasBox = document.getElementById('extrasBox');
+    const navBack = document.getElementById('navBack');
+    const catsSec = document.getElementById('categories');
+    const hero = document.getElementById('hero');
+
+    // Render category cards
+    function renderCategories() {
+      catsGrid.innerHTML = MENU.map(cat => `
+    <div class="cat-card" onclick="openCategory('${cat.id}')" role="button" tabindex="0"
+         onkeydown="if(event.key==='Enter')openCategory('${cat.id}')">
+      <div class="cat-card-bg">
+        <img src="${cat.img}" alt="${cat.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <svg class="placeholder-icon" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+      </div>
+      <div class="cat-card-content">
+        <div class="cat-card-name">${cat.name}</div>
+        <div class="cat-card-name-ar">${cat.nameAr}</div>
+        <span class="cat-card-count">${cat.items.length} أصناف</span>
+      </div>
+      <div class="cat-card-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="9 6 15 12 9 18"/></svg>
+      </div>
+    </div>
+  `).join('');
+    }
+    renderCategories();
+
+    // Open a category
+    function openCategory(id) {
+      const cat = MENU.find(c => c.id === id);
+      if (!cat) return;
+
+      // Header
+      cvHeader.innerHTML = `
+    <div class="cv-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+    <h2>${cat.name}</h2>
+    <div class="cv-ar">${cat.nameAr}</div>
+    <div class="divider"><div class="div-line"></div><div class="div-gem"></div><div class="div-line"></div></div>
+  `;
+
+      // Items
+      itemsGrid.innerHTML = cat.items.map(item => `
+    <div class="item-card">
+      <div class="item-img">
+        <img src="${item.img}" alt="${item.en}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="item-img-placeholder" style="display:none">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+          <span>PHOTO</span>
+        </div>
+      </div>
+      <div class="item-body">
+        <div class="item-names">
+          <span class="item-en">${item.en}</span>
+          <span class="item-ar">${item.ar}</span>
+        </div>
+        <p class="item-desc">${item.desc}</p>
+        <div class="item-foot">
+          <span class="item-price">${item.price}</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+      // Extras
+      if (cat.extras && cat.extras.length) {
+        extrasBox.innerHTML = `
+      <div class="extras-box">
+        <div class="extras-top">
+          <div class="extras-top-line"></div>
+          <span class="extras-top-title">EXTRAS</span>
+          <div class="extras-top-line"></div>
+        </div>
+        <div class="extras-grid">
+          ${cat.extras.map(ex => `
+            <div class="extras-item">
+              <span class="extras-item-name">${ex.name}</span>
+              <span class="extras-item-price">${ex.price}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+      } else {
+        extrasBox.innerHTML = '';
+      }
+
+      // Show/hide sections
+      hero.style.display = 'none';
+      catsSec.style.display = 'none';
+      catView.classList.add('show');
+      catView.style.display = 'block';
+      navBack.classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Go back to categories
+    function goHome() {
+      catView.classList.remove('show');
+      catView.style.display = 'none';
+      hero.style.display = '';
+      catsSec.style.display = '';
+      navBack.classList.remove('show');
+      window.scrollTo({ top: document.getElementById('categories').offsetTop - 80, behavior: 'smooth' });
+    }
+
+    /* ═══════════════════════════════════
+       NAV SCROLL EFFECTS
+    ═══════════════════════════════════ */
+    const nav = document.getElementById('nav');
+    const btt = document.getElementById('btt');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', scrollY > 50);
+      btt.classList.toggle('show', scrollY > 500);
+    });
+  </script>
+</body>
+
+</html>
