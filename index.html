@@ -305,11 +305,20 @@
       flex-shrink: 0;
     }
 
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 36px;
+      position: relative;
+      z-index: 1;
+    }
+
     .hero-cta {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-top: 36px;
       padding: 16px 42px;
       background: linear-gradient(135deg, var(--gold), #d49c15, #f0be38);
       background-size: 200% auto;
@@ -317,14 +326,23 @@
       font-family: 'Cairo', sans-serif;
       font-size: 15px;
       font-weight: 800;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       text-decoration: none;
       border-radius: 50px;
       box-shadow: 0 10px 30px rgba(200, 144, 10, .3);
       transition: all 0.5s;
-      position: relative;
-      z-index: 1;
       overflow: hidden;
+      position: relative;
+    }
+
+    .hero-cta-drinks {
+      background: linear-gradient(135deg, var(--red), #8a1515, #b01e1e);
+      box-shadow: 0 10px 30px rgba(106, 16, 16, .4);
+      color: var(--cream);
+    }
+
+    .hero-cta-drinks:hover {
+      box-shadow: 0 15px 40px rgba(106, 16, 16, .6) !important;
     }
 
     .hero-cta::before {
@@ -1128,11 +1146,15 @@
         letter-spacing: 1px;
       }
 
+      .hero-cta-group {
+        margin-top: 20px;
+        gap: 12px;
+      }
+
       .hero-cta {
         padding: 12px 28px;
         font-size: 12px;
-        letter-spacing: 3px;
-        margin-top: 24px;
+        letter-spacing: 2px;
       }
 
       .hero-scroll-hint {
@@ -1512,7 +1534,16 @@
       <div class="div-gem"></div>
       <div class="div-line"></div>
     </div>
-    <a class="hero-cta" href="#categories" id="heroCta">EXPLORE MENU</a>
+    <div class="hero-cta-group">
+      <a class="hero-cta" href="#categories" id="heroCta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex-shrink:0"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 8v8M8 12h8"/></svg>
+        الدخول لقائمة الأكل
+      </a>
+      <a class="hero-cta hero-cta-drinks" href="https://pro-mw.github.io/La-Capanna/menu.html" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;flex-shrink:0"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        الدخول لقائمة المشروبات
+      </a>
+    </div>
     <div class="hero-scroll-hint">⌄</div>
   </section>
 
@@ -1559,86 +1590,16 @@
     ═══════════════════════════════════ */
     const MENU = [
       {
-    id: 'breakfast',
-    name: 'Breakfast Meals',
-    nameAr: 'وجبات فطار',
-    img: 'images/categories/breakfast.png',
-    items: [
-      { en: 'POTATO & ROMY CHEESE', ar: 'ساندوتش بطاطس جبنه رومي', desc: 'بطاطس - خس - طماطم - مايونيز - جبنة رومي ', price: 65, img: 'images/items/breakfast_potato_and_romy_cheese.png' },
-      { en: 'EGG & PASTRAMI', ar: 'ساندوتش بيض بالبسطرمه', desc: 'بيض - بسطرمة - صوص جبنة - طماطم - خس', price: 75, img: 'images/items/breakfast_egg_and_pastrami.png' },
-      { en: 'EGG & VEGETABLES', ar: 'ساندوتش بيض بالخضار', desc: 'بيض - فلفل ألوان - صوص جبنة - طماطم - خس - بصل', price: 65, img: 'images/items/breakfast_egg_and_vegetables.png' },
-      { en: 'MEXICAN HOT DOG', ar: 'ساندوتش ميكسيكان هوت دوج', desc: 'هوت دوج - فلفل ألوان - طماطم - خس - بصل - مستردة - كاتشب', price: 95, img: 'images/items/breakfast_mexican_hot_dog.png' },
-      { en: 'ALEXANDRIAN SAUSAGE', ar: 'ساندوتش سجق اسكندراني', desc: 'سجق - فلفل ألوان - طماطم - خس - بصل - عصير طماطم', price: 95, img: 'images/items/breakfast_alexandrian_sausage.png' },
-      { en: 'TURKEY CHEESE', ar: 'ساندوتش تركي تشيز', desc: 'تركي - شيدر افانتي - خس - جبنة كيري', price: 120, img: 'images/items/breakfast_turkey_cheese.png' },
-      { en: 'POTATO & CHEDDAR SAUCE', ar: 'ساندوتش بطاطس بصوص الشيدر', desc: 'بطاطس - صوص جبنة - مايونيز - خس - كاتشب', price: 65, img: 'images/items/breakfast_potato_and_cheddar_sauce.png' },
-      { en: 'CROISSANT SCALANCE', ar: 'كرواسون سكلانس', desc: 'كرواسون - حلاوة - قشطة - مربى - عسل نحل', price: 80, img: 'images/items/breakfast_croissant_scalance.png' },
-      { en: 'POTATO HOT DOG', ar: 'ساندوتش بطاطس هوت دوك', desc: 'هوت دوج - فلفل ألوان - طماطم - خس - بصل - مستردة - كاتشب - بطاطس', price: 110, img: 'images/items/breakfast_potato_hot_dog.png' },
-      { en: 'HAKUNA MATATA MIX', ar: 'ساندوتش ميكس هاكونا ماتاتا', desc: 'مايونيز - جبنة كيري - خس - طماطم - بيض - فلفل ألوان - بصل - بطاطس - صوص جبنة - كاتشب', price: 85, img: 'images/items/breakfast_hakuna_matata_mix.png' },
-      { en: 'SYRIAN POTATO SANDWICH', ar: 'ساندوتش بطاطس سوري', desc: 'بطاطس - فلفل ألوان - طماطم - خس - بصل - مايونيز - كاتشب', price: 45, img: 'images/items/breakfast_syrian_potato_sandwich.png' }
-    ],
-    extras: [
-      { name: 'بيض إضافي', price: 10 },
-      { name: 'جبنة إضافية', price: 15 },
-      { name: 'خضار إضافي', price: 10 },
-      { name: 'صوص إضافي', price: 10 }
-    ]
-  },
-      {
-        id: 'appetizers', name: 'Appetizers', nameAr: 'المقبلات', img: 'images/categories/appetizers.png',
+        id: 'burgers', name: 'Burgers', nameAr: 'البرجر', img: 'images/categories/burgers.png',
         items: [
-          { en: 'CRISPY FRIES', ar: 'كرسبي فرايز', desc: 'فرينش فرايز - فراخ ستريبس - صوص جبنة - صوص رانش - توابل كيجين - سويت كورن - زيتون', price: 95, img: 'images/items/appetizers_crispy_fries.png' },
-          { en: 'SAUSAGE FRIES', ar: 'فرايز بالسجق', desc: 'سجق ارميني - فرينش فرايز - فلفل سبايسي - بصل مفروم - ثوم - صوص سموكد - صوص جبنة', price: 105, img: 'images/items/appetizers_sausage_fries.png' },
-          { en: 'HOT DOG FRIES', ar: 'فرايز هوت دوج', desc: 'فرينش فرايز - هوت دوج - صوص جبنة - هالبينو', price: 105, img: 'images/items/appetizers_hotdog_fries.png' },
-          { en: 'KOFTA KUNAFA', ar: 'كفتة كنافة', desc: 'كفتة - كنافة - صوص طحينة سيراتشا', price: 75, img: 'images/items/appetizers_kofta_kunafa.png' },
-          { en: 'CURLY FRIES', ar: 'كيرلي فرايز', desc: 'كيرلي فرايز - صوص حسب الاختيار', price: 60, img: 'images/items/appetizers_curly_fries.png' },
-          { en: 'CHILI FRIES', ar: 'تشيلي فرايز', desc: 'تشيلي دي كارني - فرينش فرايز - هالبينو - فاصوليا حمراء - سويت كورن - صوص جبنة', price: 75, img: 'images/items/appetizers_chili_fries.png' },
-          { en: 'CHICKEN STRIPS', ar: 'تشيكن ستريبس', desc: 'صدور فراخ - بريدينج - سويت شيلي صوص - هاني ماسترد - فرينش فرايز', price: 110, img: 'images/items/appetizers_chicken_strips.png' },
-          { en: 'WINGS', ar: 'وينجز', desc: 'أجنحة - بريدينج - صوص بافلو أو باربيكيو - بصل اخضر - سمسم', price: 80, img: 'images/items/appetizers_wings.png' }
-        ],
-        extras: [
-          { name: 'صوص جبنة', price: 15 }, { name: 'صوص رانش', price: 15 }, { name: 'صوص بافلو', price: 15 },
-          { name: 'هالبينو', price: 10 }, { name: 'سويت كورن', price: 10 }, { name: 'زيتون', price: 10 }
-        ]
-      },
-      {
-        id: 'salad', name: 'Salad', nameAr: 'السلطات', img: 'images/categories/salad.png',
-        items: [
-          { en: 'MEXICAN', ar: 'ميكسيكان', desc: 'خس كابتشا - صدور فراخ مشوية - صوص رانش - بيكو دي جالو - جواكامولي - عيش تورتيلا مقلي - ورق كزبرة', price: 70, img: 'images/items/salad_mexican.png' },
-          { en: 'CAESAR', ar: 'سيزر', desc: 'خس بلدي - عيش كروتون - جبنة بارميجان - سيزر دريسينج', price: 70, img: 'images/items/salad_caesar.png' },
-          { en: 'HEALTHY SALAD', ar: 'هيلثي سلاد', desc: 'خس احمر - جرجير - كوسة مسلوقة - جزر مسلوق - فاصوليا خضراء - بروكلي - بسلة - تفاح اخضر - بيبي كورن - دريسينج', price: 60, img: 'images/items/salad_healthy.png' }
-        ],
-        extras: [
-          { name: 'صدور فراخ مشوية', price: 35 }, { name: 'جرجير', price: 10 }, { name: 'جواكامولي', price: 20 },
-          { name: 'بيكو دي جالو', price: 15 }, { name: 'كروتون', price: 10 }
-        ]
-      },
-      {
-        id: 'meals', name: 'Meals', nameAr: 'الوجبات', img: 'images/categories/meals.png',
-        items: [
-          { en: 'PARMIGIANA', ar: 'بارمجانا', desc: 'صدور فراخ - بانكو بريد - بريدينج - صوص طماطم - جبنة موزاريلا - جبنة بارميجان - بطاطس ويدج', price: 130, img: 'images/items/meals_parmigiana.png' },
-          { en: 'GRILLED CHICKEN LEMON', ar: 'جريلد تشيكن بصوص الليمون', desc: 'فراخ مشوية - صوص ليمون - مشروم - أرز أبيض', price: 145, img: 'images/items/meals_grilled_chicken_lemon.png' },
-          { en: 'MIXED GRILL', ar: 'وجبة مشاوي', desc: 'كفتة - شيش - أرز بالشعرية - طحينة', price: 145, img: 'images/items/meals_mixed_grill.png' },
-          { en: 'FAJITA', ar: 'فاهيتا', desc: 'صدور فراخ - مشروم - فلفل الوان - بصل ابيض - زيتون احمر - كاتشب - أرز أبيض', price: 125, img: 'images/items/meals_fajita.png' },
-          { en: 'SAUSAGE CASSEROLE', ar: 'طاسة سجق', desc: 'سجق - بصل ابيض - صوص طماطم - ثوم - وايت صوص - جبنة موزاريلا', price: 145, img: 'images/items/meals_sausage_casserole.png' },
-          { en: 'SEAFOOD CASSEROLE', ar: 'طاسة سي فود', desc: 'كاليماري - جمبري - سمك - ثوم - فلفل الوان - وايت صوص - موزاريلا', price: 180, img: 'images/items/meals_seafood_casserole.png' },
-          { en: 'CORDON BLEU CASSEROLE', ar: 'طاسة كوردون بلو', desc: 'كوردون بلو مقلي - وايت صوص - موزاريلا', price: 105, img: 'images/items/meals_cordon_bleu.png' }
-        ],
-        extras: [
-          { name: 'أرز', price: 20 }, { name: 'مشروم', price: 25 }, { name: 'جمبري', price: 50 },
-          { name: 'صدور فراخ', price: 35 }, { name: 'موزاريلا', price: 20 }
-        ]
-      },
-      {
-        id: 'sandwiches', name: 'Sandwiches', nameAr: 'الساندوتشات', img: 'images/categories/sandwiches.png',
-        items: [
-          { en: 'CRISPY', ar: 'كرسبي', desc: 'صدور ستريبس مقرمشة - خس - طماطم - مايونيز - عيش ساندوتش - يقدم مع بطاطس ومخلل', price: 125, img: 'images/items/sandwiches_crispy.png' },
-          { en: 'MATATA NASHVILLE', ar: 'ماتاتا ناجفيل', desc: 'صدور فراخ مقرمشة - صوص ناجفيل - صوص جبنة - عيش ساندوتش - يقدم مع بطاطس ومخلل', price: 150, img: 'images/items/sandwiches_matata_nashville.png' },
-          { en: 'PESTO CHICKEN', ar: 'بيستو فراخ', desc: 'صدور فراخ مشوية - بيستو صوص - جرجير - جبنة موزاريلا - عيش ساندوتش - يقدم مع بطاطس ومخلل', price: 150, img: 'images/items/sandwiches_pesto_chicken.png' },
-          { en: 'SHRIMP CRAB', ar: 'شريمب كراب', desc: 'جمبري مقلي - صوص رانش - خس احمر - جرجير - كراب ستيك - كراب صوص - عيش ساندوتش - يقدم مع بطاطس ومخلل', price: 160, img: 'images/items/sandwiches_shrimp_crab.png' },
-          { en: 'HAWAWSHI', ar: 'حواوشي', desc: 'لحم حواوشي - عيش بلدي - صوص طحينة - يقدم مع بطاطس ومخلل', price: 75, img: 'images/items/sandwiches_hawawshi.png' },
-          { en: 'KOFTA ROLL', ar: 'كفتة رول', desc: 'كفتة - طحينة - بصل احمر بالسماق - جرجير - يقدم مع بطاطس ومخلل', price: 100, img: 'images/items/sandwiches_kofta_roll.png' },
-          { en: 'CHICKEN TACO', ar: 'تاكو فراخ', desc: 'شرايح فراخ - توابل كيجين - فلفل الوان - بصل ابيض - مشروم - موزاريلا - هالبينو - ساور كريم - عيش تورتيلا - يقدم مع بطاطس ومخلل', price: 105, img: 'images/items/sandwiches_chicken_taco.png' },
-          { en: 'BEEF TACO', ar: 'تاكو لحم', desc: 'لحم مفروم - موزاريلا - هالبينو - ساور كريم - عيش تورتيلا - يقدم مع بطاطس ومخلل', price: 120, img: 'images/items/sandwiches_beef_taco.png' }
+          { en: 'CLASSIC BURGER', ar: 'برجر كلاسيك', desc: 'لحم برجر - خس - طماطم - خيار مخلل - مايونيز - كاتشب - مستردة - برجر بان - يقدم مع بطاطس', price: 120, img: 'images/items/burgers_classic.png' },
+          { en: 'CHEESE BURGER', ar: 'برجر جبنه', desc: 'لحم برجر - جبنة شيدر - خس - طماطم - خيار مخلل - مايونيز - برجر بان - يقدم مع بطاطس', price: 130, img: 'images/items/burgers_cheese.png' },
+          { en: 'HAKUNA MATATA BURGER', ar: 'برجر هاكونا ماتاتا', desc: 'لحم برجر - صوص هاكونا الخاص - بصل مكرمل - جبنة شيدر - خس - طماطم - برجر بان - يقدم مع بطاطس', price: 155, img: 'images/items/burgers_hakuna_matata.png' },
+          { en: 'DOUBLE CLASSIC', ar: 'برجر دبل كلاسيك', desc: 'باتي مزدوج - خس - طماطم - خيار مخلل - مايونيز - كاتشب - برجر بان - يقدم مع بطاطس', price: 150, img: 'images/items/burgers_double_classic.png' },
+          { en: 'DOUBLE HAKUNA', ar: 'برجر دبل هاكونا', desc: 'باتي مزدوج - صوص هاكونا الخاص - بصل مكرمل - جبنة شيدر - خس - طماطم - برجر بان - يقدم مع بطاطس', price: 175, img: 'images/items/burgers_double_hakuna.png' },
+          { en: 'CLASSIC CHICKEN BURGER', ar: 'برجر فراخ كلاسيك', desc: 'صدور فراخ مقرمشة - خس - طماطم - خيار مخلل - مايونيز - برجر بان - يقدم مع بطاطس', price: 120, img: 'images/items/burgers_chicken_classic.png' },
+          { en: 'CHICKEN CHEESE BURGER', ar: 'برجر فراخ جبنه', desc: 'صدور فراخ مقرمشة - جبنة شيدر - خس - طماطم - خيار مخلل - مايونيز - برجر بان - يقدم مع بطاطس', price: 130, img: 'images/items/burgers_chicken_cheese.png' },
+          { en: 'PASTRAMI BURGER', ar: 'برجر بسطرمه', desc: 'لحم برجر - بسطرمة - جبنة شيدر - بصل مكرمل - مايونيز - برجر بان - يقدم مع بطاطس', price: 145, img: 'images/items/burgers_pastrami.png' }
         ],
         extras: [
           { name: 'بيف بيكون', price: 25 }, { name: '٢ موتزريلا استيكس', price: 25 },
@@ -1648,31 +1609,14 @@
         ]
       },
       {
-        id: 'pasta', name: 'Pasta', nameAr: 'الباستا', img: 'images/categories/pasta.png',
+        id: 'sandwiches', name: 'Sandwiches', nameAr: 'الساندوتشات', img: 'images/categories/sandwiches.png',
         items: [
-          { en: 'ALFREDO', ar: 'الفريدو', desc: 'بينا باستا - وايت صوص - مشروم - صدور فراخ - ثوم - زبدة', price: 110, img: 'images/items/pasta_alfredo.png' },
-          { en: 'SPICY SAUSAGE', ar: 'سبايسي سجق', desc: 'بينا باستا - سجق ارميني - فلفل حار - طماطم شيري - بصل اخضر - صوص طماطم', price: 100, img: 'images/items/pasta_spicy_sausage.png' },
-          { en: 'CAJUN SHRIMP', ar: 'جمبري كيجين', desc: 'بينا باستا - جمبري - صوص كيجين - ثوم - زبدة', price: 130, img: 'images/items/pasta_cajun_shrimp.png' },
-          { en: 'PESTO CHICKEN', ar: 'بيستو فراخ', desc: 'بينا باستا - بيستو صوص - وايت صوص - صدور فراخ مشوية', price: 110, img: 'images/items/pasta_pesto_chicken.png' },
-          { en: 'ARRABBIATA', ar: 'اربيلتا', desc: 'بينا باستا - طماطم شيري - فلفل الوان - صوص طماطم - زيتون - ثوم', price: 85, img: 'images/items/pasta_arrabbiata.png' },
-          { en: 'CHEESY PASTA & NUGGETS', ar: 'تشيزي باستا مع ناجتس', desc: 'زيتي باستا - ميكس تشيز - شيدر مطبوخ - ناجتس', price: 125, img: 'images/items/pasta_cheesy_pasta_nuggets.png' }
-        ],
-        extras: [
-          { name: 'مشروم', price: 25 }, { name: 'جمبري', price: 50 },
-          { name: 'صدور فراخ', price: 35 }, { name: 'سجق ارميني', price: 30 },
-          { name: 'تشيز', price: 20 }
-        ]
-      },
-      {
-        id: 'burgers', name: 'Burgers', nameAr: 'البرجر', img: 'images/categories/burgers.png',
-        items: [
-          { en: 'JUICY LUCY', ar: 'جوسي لوسي', desc: 'لحم برجر - صوص شيدر - بيف بيكون - بصل مكرمل - بيج تيستي صوص - برجر بان - يقدم مع بطاطس', price: 175, img: 'images/items/burgers_juicy_lucy.png' },
-          { en: 'CRISPY CHICKEN BURGER', ar: 'فراخ كرسبي', desc: 'صدور فراخ مقرمشة - خس - طماطم - خيار مخلل - صوص جبنة - مايونيز - برجر بان - يقدم مع بطاطس', price: 150, img: 'images/items/burgers_crispy_chicken.png' },
-          { en: 'MUSHROOM BURGER', ar: 'مشروم برجر', desc: 'لحم برجر - مشروم - بيف بيكون - موزاريلا ستيك - اناناس - سموكد سبايسي مايو - برجر بان - يقدم مع بطاطس', price: 160, img: 'images/items/burgers_mushroom.png' },
-          { en: 'BB BLUE', ar: 'بي بي بلو', desc: 'لحم برجر - بيف بيكون - حلقات بصل مقلي - موزاريلا ستيك - بلو تشيز صوص - كريمي تشيز - برجر بان - يقدم مع بطاطس', price: 160, img: 'images/items/burgers_bb_blue.png' },
-          { en: 'OLD SCHOOL', ar: 'اولد سكول', desc: 'لحم برجر - خس - طماطم - بصل - خيار مخلل - مايونيز - جبنة شرايح - برجر بان - يقدم مع بطاطس', price: 150, img: 'images/items/burgers_old_school.png' },
-          { en: 'BEEF CROISSANT', ar: 'كرواسون لحم', desc: 'كرواسون - لحم برجر - كريمي تشيز - بلو بيري - موزاريلا ستيك - بسطرمة - يقدم مع بطاطس', price: 160, img: 'images/items/burgers_beef_croissant.png' },
-          { en: 'CHICKEN CROISSANT', ar: 'كرواسون فراخ', desc: 'كرواسون - صدور فراخ مقرمشة - كريمي تشيز - بلو بيري - موزاريلا ستيك - بسطرمة - يقدم مع بطاطس', price: 160, img: 'images/items/burgers_chicken_croissant.png' }
+          { en: 'HAWAWSHI CHEESE', ar: 'حواوشي جبنه', desc: 'لحم حواوشي - جبنة شيدر - عيش بلدي - صوص طحينة - يقدم مع بطاطس ومخلل', price: 85, img: 'images/items/sandwiches_hawawshi_cheese.png' },
+          { en: 'HAWAWSHI', ar: 'حواوشي', desc: 'لحم حواوشي - عيش بلدي - صوص طحينة - يقدم مع بطاطس ومخلل', price: 75, img: 'images/items/sandwiches_hawawshi.png' },
+          { en: 'KOFTA', ar: 'كفته', desc: 'كفتة - طحينة - بصل احمر بالسماق - جرجير - يقدم مع بطاطس ومخلل', price: 90, img: 'images/items/sandwiches_kofta.png' },
+          { en: 'HOT DOG', ar: 'هوت دوج', desc: 'هوت دوج - فلفل ألوان - طماطم - خس - بصل - مستردة - كاتشب - يقدم مع بطاطس ومخلل', price: 75, img: 'images/items/sandwiches_hot_dog.png' },
+          { en: 'SYRIAN POTATO', ar: 'ساندوتش بطاطس سوري', desc: 'بطاطس - فلفل ألوان - طماطم - خس - بصل - مايونيز - كاتشب', price: 45, img: 'images/items/sandwiches_syrian_potato.png' },
+          { en: 'FETYA', ar: 'فتيا', desc: 'فتيا - لحم مفروم - صوص طماطم - يقدم مع بطاطس ومخلل', price: 80, img: 'images/items/sandwiches_fetya.png' }
         ],
         extras: [
           { name: 'بيف بيكون', price: 25 }, { name: '٢ موتزريلا استيكس', price: 25 },
