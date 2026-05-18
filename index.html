@@ -1596,19 +1596,24 @@
           { en: 'CLASSIC BURGER',        ar: 'برجر كلاسيك',        desc: 'لحم برجر - خس - طماطم - خيار مخلل - مايونيز - كاتشب - مستردة - برجر بان - يقدم مع بطاطس',                          price: 120, img: 'images/items/burgers_classic.png' },
           { en: 'CHEESE BURGER',         ar: 'برجر جبنه',           desc: 'لحم برجر - جبنة شيدر - خس - طماطم - خيار مخلل - مايونيز - برجر بان - يقدم مع بطاطس',                              price: 150, img: 'images/items/burgers_cheese.png' },
           { en: 'PASTRAMI BURGER',       ar: 'برجر بسطرمه',         desc: 'لحم برجر - بسطرمة - مايونيز - برجر بان - يقدم مع بطاطس',                                  price: 150, img: 'images/items/burgers_pastrami.png' },
-          { en: 'HAKUNA MATATA BURGER',  ar: 'برجر هاكونا ماتاتا',  desc: 'لحم برجر - صوص هاكونا الخاص - بصل مكرمل - جبنة شيدر - خس - طماطم - برجر بان - يقدم مع بطاطس',                    price: 170, img: 'images/items/burgers_hakuna_matata.png' },
+          { en: 'HAKUNA MATATA BURGER',  ar: 'برجر هاكونا ماتاتا',  desc: 'لحم برجر - صوص هاكونا الخاص - ماشروم - جبنة شيدر - خس - طماطم - برجر بان - يقدم مع بطاطس',                    price: 170, img: 'images/items/burgers_hakuna_matata.png' },
           // ─── Beef Doubles ───────────────────────────────
-          { en: 'DOUBLE CLASSIC',        ar: 'برجر دبل كلاسيك',     desc: 'باتي مزدوج - خس - طماطم - خيار مخلل - مايونيز - كاتشب - برجر بان - يقدم مع بطاطس',                               price: 180, img: 'images/items/burgers_double_classic.png' },
-          { en: 'DOUBLE HAKUNA',         ar: 'برجر دبل هاكونا',      desc: 'باتي مزدوج - صوص هاكونا الخاص - بصل مكرمل - جبنة شيدر - خس - طماطم - برجر بان - يقدم مع بطاطس',                  price: 220, img: 'images/items/burgers_double_hakuna.png' },
+          { en: 'DOUBLE CLASSIC',        ar: 'برجر دبل كلاسيك',     desc: 'دبل برجر - خس - طماطم - خيار مخلل - مايونيز - كاتشب - برجر بان - يقدم مع بطاطس',                               price: 180, img: 'images/items/burgers_double_classic.png' },
+          { en: 'DOUBLE HAKUNA',         ar: 'برجر دبل هاكونا',      desc: 'دبل برجر - صوص هاكونا الخاص - ماشروم - جبنة شيدر - خس - طماطم - برجر بان - يقدم مع بطاطس',                  price: 220, img: 'images/items/burgers_double_hakuna.png' },
           // ─── Chicken ────────────────────────────────────
           { en: 'CLASSIC CHICKEN BURGER',ar: 'برجر فراخ كلاسيك',    desc: 'صدور فراخ مقرمشة - خس - طماطم - خيار مخلل - مايونيز - برجر بان - يقدم مع بطاطس',                                 price: 125, img: 'images/items/burgers_chicken_classic.png' },
-          { en: 'CHICKEN CHEESE BURGER', ar: 'برجر فراخ جبنه',       desc: 'صدور فراخ مقرمشة - جبنة شيدر - خس - طماطم - خيار مخلل - مايونيز - برجر بان - يقدم مع بطاطس',                    price: 150, img: 'images/items/burgers_chicken_cheese.png' }
+          { en: 'CHICKEN CHEESE BURGER', ar: 'برجر فراخ جبنة',       desc: 'صدور فراخ مقرمشة - جبنة شيدر - خس - طماطم - خيار مخلل - مايونيز - برجر بان - يقدم مع بطاطس',                    price: 150, img: 'images/items/burgers_chicken_cheese.png' }
         ],
-        extras: [
+         extras: [
+          { name: 'كاتشب', price: 10 },
+          { name: 'مايونيز', price: 10 },
+          { name: 'صوص الجبنة', price: 30 },
+          { name: 'صوص رانش', price: 30 },
           { name: 'باكيت بطاطس صغير', price: 25 },
-          { name: 'باكيت بطاطس كبير بصوص الجبنه', price: 40 },
-          { name: 'بطاطس بافراخ الكريسبي', price: 90 },
-          { name: 'بطاطس هوت دوج', price: 105 },
+          { name: 'باكيت بطاطس كبير', price: 50 },
+          { name: 'باكيت بطاطس بصوص الجبنة', price: 70 },
+          { name: 'بيبسي', price: 25 },
+          { name: 'مياه', price: 15 },
         ],
       },
       {
@@ -1617,32 +1622,43 @@
           // ─── Classic Meat ────────────────────────────────
           { en: 'HAWAWSHI',        ar: 'حواوشي',               desc: 'لحم حواوشي - عيش بلدي - صوص طحينة - يقدم مع بطاطس ومخلل',                                           price: 75, img: 'images/items/sandwiches_hawawshi.png' },
           { en: 'HAWAWSHI CHEESE', ar: 'حواوشي جبنه',           desc: 'لحم حواوشي - جبنة شيدر - عيش بلدي - صوص طحينة - يقدم مع بطاطس ومخلل',                               price: 100, img: 'images/items/sandwiches_hawawshi_cheese.png' },
-          { en: 'KOFTA',           ar: 'كفته',                  desc: 'كفتة - طحينة - بصل احمر بالسماق - جرجير - يقدم مع بطاطس ومخلل',                                     price: 100, img: 'images/items/sandwiches_kofta.png' },
+          { en: 'KOFTA',           ar: 'كفته',                  desc: 'كفتة - طحينة - طماطم - خس - يقدم مع بطاطس ومخلل وبيبسي',                                     price: 120, img: 'images/items/sandwiches_kofta.png' },
           // ─── Light / Quick ───────────────────────────────
-          { en: 'CRISPY SANDWICH',           ar: 'ساندوتش كرسبي',   desc: 'صدور ستريبس مقرمشة - خس - طماطم - مايونيز - عيش ساندوتش - يقدم مع بطاطس ومخلل',                   price: 125, img: 'images/items/sandwiches_crispy.png' },
-          { en: 'HOT DOG',         ar: 'هوت دوج',               desc: 'هوت دوج - فلفل ألوان - طماطم - خس - بصل - مستردة - كاتشب - يقدم مع بطاطس ومخلل',                    price: 110, img: 'images/items/sandwiches_hot_dog.png' },
-          { en: 'SYRIAN POTATO',   ar: 'ساندوتش بطاطس سوري',    desc: 'بطاطس - فلفل ألوان - طماطم - خس - بصل - مايونيز - كاتشب',                                          price: 40, img: 'images/items/sandwiches_syrian_potato.png' },
-          { en: 'FRENCH FRIES',           ar: 'ساندوتش بطاطس فرنساوي',   desc: 'بطاطس - فلفل ألوان - طماطم - خس - بصل - مايونيز - كاتشب',                                                price: 50, img: 'images/items/sandwiches_fetya.png' },
+          { en: 'CRISPY SANDWICH',           ar: 'ساندوتش كرسبي',   desc: 'صدور ستريبس مقرمشة - خس - طماطم - مايونيز - عيش فرنساوي - يقدم مع بطاطس ومخلل',                   price: 125, img: 'images/items/sandwiches_crispy.png' },
+          { en: 'HOT DOG',         ar: 'هوت دوج',               desc: 'هوت دوج - طماطم - خس - مستردة - كاتشب - يقدم مع بطاطس ومخلل وبيبسي',                    price: 110, img: 'images/items/sandwiches_hot_dog.png' },
+          { en: 'SYRIAN POTATO',   ar: 'ساندوتش بطاطس سوري',    desc: 'بطاطس - طماطم - خس- مايونيز - كاتشب - عيش سوري',                                          price: 40, img: 'images/items/sandwiches_syrian_potato.png' },
+          { en: 'FRENCH FRIES',           ar: 'ساندوتش بطاطس فرنساوي',   desc: 'بطاطس - طماطم - خس- مايونيز - كاتشب - عيش فرنساوي',                                                price: 50, img: 'images/items/sandwiches_fetya.png' },
         ],
         extras: [
+           { name: 'طحينة', price: 15 },
+          { name: 'كاتشب', price: 10 },
+          { name: 'مايونيز', price: 10 },
+          { name: 'صوص الجبنة', price: 30 },
+          { name: 'صوص رانش', price: 30 },
           { name: 'باكيت بطاطس صغير', price: 25 },
-          { name: 'باكيت بطاطس كبير بصوص الجبنه', price: 40 },
-          { name: 'بطاطس بافراخ الكريسبي', price: 90 },
-          { name: 'بطاطس هوت دوج', price: 105 },
+          { name: 'باكيت بطاطس كبير', price: 50 },
+          { name: 'باكيت بطاطس بصوص الجبنة', price: 70 },
+          { name: 'بيبسي', price: 25 },
+          { name: 'مياه', price: 15 },
         ],
       
       },
         {
         id: 'appetizers', name: 'Appetizers', nameAr: 'المقبلات', img: 'images/categories/appetizers.png',
         items: [
-          { en: 'CRISPY FRIES', ar: 'طاسة بطاطس بالفراخ الكرسبي', desc: 'فرينش فرايز - فراخ ستريبس - صوص جبنة - صوص رانش - توابل كيجين - سويت كورن - زيتون', price: 90, img: 'images/items/appetizers_crispy_fries.png' },
-          { en: 'POTATO HOT DOG', ar: 'طاسة بطاطس هوت دوج', desc: 'سجق ارميني - فرينش فرايز - فلفل سبايسي - بصل مفروم - ثوم - صوص سموكد - صوص جبنة', price: 105, img: 'images/items/appetizers_sausage_fries.png' },
+          { en: 'CRISPY FRIES', ar: 'طاسة بطاطس بالفراخ الكرسبي', desc: 'فرينش فرايز - فراخ ستريبس - كاتشب - مايونيز', price: 90, img: 'images/items/appetizers_crispy_fries.png' },
+          { en: 'POTATO HOT DOG', ar: 'طاسة بطاطس هوت دوج', desc: 'هوت دوج - فرينش فرايز - كاتشب - مايونيز', price: 105, img: 'images/items/appetizers_sausage_fries.png' },
           ],
-           extras: [
+            extras: [
+          { name: 'كاتشب', price: 10 },
+          { name: 'مايونيز', price: 10 },
+          { name: 'صوص الجبنة', price: 30 },
+          { name: 'صوص رانش', price: 30 },
           { name: 'باكيت بطاطس صغير', price: 25 },
-          { name: 'باكيت بطاطس كبير بصوص الجبنه', price: 40 },
-          { name: 'بطاطس بافراخ الكريسبي', price: 90 },
-          { name: 'بطاطس هوت دوج', price: 105 },
+          { name: 'باكيت بطاطس كبير', price: 50 },
+          { name: 'باكيت بطاطس بصوص الجبنة', price: 70 },
+          { name: 'بيبسي', price: 25 },
+          { name: 'مياه', price: 15 },
         ]
           
         }
