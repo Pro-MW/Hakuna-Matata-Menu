@@ -190,7 +190,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 100px clamp(20px, 5vw, 60px) 60px;
+      padding: 100px clamp(20px, 5vw, 60px) 80px;
       position: relative;
       overflow: hidden;
     }
@@ -318,15 +318,17 @@
     .hero-cta {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       padding: 16px 42px;
+      min-width: min(270px, 90vw);
       background: linear-gradient(135deg, var(--gold), #d49c15, #f0be38);
       background-size: 200% auto;
       color: var(--bg);
       font-family: 'Cairo', sans-serif;
       font-size: 15px;
       font-weight: 800;
-      letter-spacing: 3px;
+      letter-spacing: 1px;
       text-decoration: none;
       border-radius: 50px;
       box-shadow: 0 10px 30px rgba(200, 144, 10, .3);
@@ -771,7 +773,8 @@
       font-size: clamp(14px, 2vw, 16px);
       font-weight: 800;
       color: var(--cream);
-      white-space: nowrap;
+      white-space: normal;
+      word-break: break-word;
     }
 
     .item-desc {
@@ -783,6 +786,8 @@
       direction: rtl;
       text-align: right;
       flex: 1;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
 
     .item-foot {
@@ -967,537 +972,202 @@
 
     /* ─── Large Desktop (>1200px) — handled by clamp() defaults ─── */
 
-    /* ─── Tablet Landscape / Small Laptop ─── */
-    @media (max-width: 1024px) {
-      .cats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .items-grid {
-        grid-template-columns: 1fr;
-      }
-
-      #categories {
-        padding-left: 24px;
-        padding-right: 24px;
-      }
-
-      #categoryView {
-        padding-left: 24px;
-        padding-right: 24px;
-      }
-    }
-
-    /* ─── Tablet Portrait ─── */
-    @media (max-width: 768px) {
-      .nav {
-        height: 62px;
-        padding: 0 16px;
-      }
-
-      .nav.scrolled {
-        height: 56px;
-      }
-
-      .nav-brand img {
-        width: 36px;
-        height: 36px;
-      }
-
-      .nav-brand-text {
-        font-size: 16px;
-      }
-
-      .nav-back {
-        padding: 6px 14px;
-        font-size: 12px;
-      }
-
-      .hero {
-        min-height: 90svh;
-        padding: 80px 20px 40px;
-      }
-
-      .hero-logo {
-        width: 160px;
-        height: 160px;
-        padding: 6px;
-      }
-
-      .hero-cta {
-        padding: 14px 32px;
-        font-size: 13px;
-        letter-spacing: 3px;
-      }
-
-      .cats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
-      }
-
-      .cat-card {
-        aspect-ratio: 16/10;
-      }
-
-      .cat-card-name {
-        font-size: 22px;
-      }
-
-      .cat-card-name-ar {
-        font-size: 16px;
-      }
-
-      .items-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-      }
-
-      .item-body {
-        padding: 14px;
-      }
-
-      .item-en {
-        font-size: 15px;
-      }
-
-      .item-ar {
-        font-size: 14px;
-      }
-
-      .item-price {
-        font-size: 20px;
-        padding: 4px 14px;
-      }
-
-      .extras-grid {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      }
-
-      .cv-header h2 {
-        font-size: 36px;
-      }
-
-      .cv-header .cv-ar {
-        font-size: 20px;
-      }
-    }
-
-    /* ─── Large Phones ─── */
-    @media (max-width: 600px) {
-      .nav {
-        height: 56px;
-        padding: 0 12px;
-      }
-
-      .nav.scrolled {
-        height: 52px;
-      }
-
-      .nav-brand img {
-        width: 32px;
-        height: 32px;
-      }
-
-      .nav-brand-text {
-        font-size: 14px;
-        letter-spacing: 0;
-      }
-
-      .nav-back {
-        padding: 6px 12px;
-        font-size: 11px;
-        gap: 4px;
-      }
-
-      .nav-back svg {
-        width: 14px;
-        height: 14px;
-      }
-
-      .hero {
-        min-height: 85svh;
-        padding: 70px 16px 30px;
-      }
-
-      .hero-logo {
-        width: 130px;
-        height: 130px;
-        padding: 5px;
-        margin-bottom: 20px;
-      }
-
-      .hero-eyebrow {
-        font-size: 9px;
-        letter-spacing: 5px;
-        margin-bottom: 10px;
-      }
-
-      .hero-title {
-        font-size: 38px;
-      }
-
-      .hero-title em {
-        font-size: 18px;
-      }
-
-      .hero-sub {
-        font-size: 14px;
-        margin: 12px 0 20px;
-        letter-spacing: 1px;
-      }
-
-      .hero-cta-group {
-        margin-top: 20px;
-        gap: 12px;
-      }
-
-      .hero-cta {
-        padding: 12px 28px;
-        font-size: 12px;
-        letter-spacing: 2px;
-      }
-
-      .hero-scroll-hint {
-        bottom: 16px;
-        font-size: 20px;
-      }
-
-      .divider {
-        width: min(200px, 70vw);
-      }
-
-      .cats-header h2 {
-        font-size: 32px;
-      }
-
-      .cats-header .sec-tag {
-        letter-spacing: 4px;
-        font-size: 10px;
-      }
-
-      .cats-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .cat-card {
-        aspect-ratio: 16/8;
-      }
-
-      .cat-card-content {
-        padding: 16px;
-      }
-
-      .cat-card-name {
-        font-size: 24px;
-      }
-
-      .cat-card-name-ar {
-        font-size: 15px;
-        margin-bottom: 6px;
-      }
-
-      .cat-card-count {
-        font-size: 11px;
-        padding: 3px 12px;
-      }
-
-      .cat-card-arrow {
-        width: 34px;
-        height: 34px;
-        top: 14px;
-        left: 14px;
-      }
-
-      .cat-card-arrow svg {
-        width: 14px;
-        height: 14px;
-      }
-
-      #categoryView {
-        padding: 80px 12px 40px;
-      }
-
-      .cv-header h2 {
-        font-size: 30px;
-      }
-
-      .cv-header .cv-ar {
-        font-size: 17px;
-      }
-
-      .cv-header .cv-icon {
-        width: 48px;
-        height: 48px;
-      }
-
-      .items-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .item-card {
-        border-radius: 12px;
-      }
-
-      .item-img {
-        width: 100px;
-      }
-
-      .item-body {
-        padding: 12px;
-        gap: 6px;
-      }
-
-      .item-names {
-        flex-direction: column;
-        gap: 2px;
-      }
-
-      .item-en {
-        font-size: 14px;
-      }
-
-      .item-ar {
-        font-size: 13px;
-      }
-
-      .item-desc {
-        font-size: 11px;
-        line-height: 1.7;
-      }
-
-      .item-price {
-        font-size: 18px;
-        padding: 3px 12px;
-      }
-
-      .item-price::after {
-        font-size: .5em;
-      }
-
-      .extras-box {
-        border-radius: 12px;
-      }
-
-      .extras-top {
-        padding: 12px 16px;
-      }
-
-      .extras-top-title {
-        font-size: 14px;
-        letter-spacing: 3px;
-      }
-
-      .extras-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .extras-item {
-        padding: 10px 14px;
-      }
-
-      .extras-item-name {
-        font-size: 12px;
-      }
-
-      .extras-item-price {
-        font-size: 12px;
-        padding: 2px 10px;
-      }
-
-      footer {
-        padding: 30px 16px 24px;
-      }
-
-      .ft-logo {
-        font-size: 24px;
-      }
-
-      .ft-tag {
-        font-size: 13px;
-        letter-spacing: 1px;
-      }
-
-      .ft-copy {
-        font-size: 9px;
-        letter-spacing: 2px;
-        margin-top: 16px;
-      }
-
-      #btt {
-        width: 40px;
-        height: 40px;
-        bottom: 16px;
-        left: 16px;
-        font-size: 14px;
-      }
-    }
-
-    /* ─── Small Phones ─── */
-    @media (max-width: 480px) {
-      .hero-title {
-        font-size: 32px;
-      }
-
-      .hero-title em {
-        font-size: 16px;
-      }
-
-      .hero-logo {
-        width: 110px;
-        height: 110px;
-      }
-
-      .hero-sub {
-        font-size: 13px;
-      }
-
-      .cat-card {
-        aspect-ratio: 16/7;
-      }
-
-      .cat-card-name {
-        font-size: 22px;
-      }
-
-      .item-img {
-        width: 90px;
-      }
-
-      .item-en {
-        font-size: 13px;
-      }
-
-      .item-ar {
-        font-size: 12px;
-      }
-
-      .item-price {
-        font-size: 16px;
-      }
-
-      .cv-header h2 {
-        font-size: 26px;
-      }
-
-      .cv-header .cv-ar {
-        font-size: 15px;
-      }
-    }
-
-    /* ─── Very Small Screens ─── */
-    @media (max-width: 380px) {
-      .nav-brand-text {
-        font-size: 13px;
-      }
-
-      .nav-brand img {
-        width: 28px;
-        height: 28px;
-      }
-
-      .hero-logo {
-        width: 100px;
-        height: 100px;
-      }
-
-      .hero-title {
-        font-size: 28px;
-      }
-
-      .hero-title em {
-        font-size: 14px;
-      }
-
-      .hero-cta {
-        padding: 10px 22px;
-        font-size: 11px;
-        letter-spacing: 2px;
-      }
-
-      .cat-card-name {
-        font-size: 20px;
-      }
-
-      .cat-card-name-ar {
-        font-size: 13px;
-      }
-
-      .item-img {
-        width: 80px;
-      }
-
-      .item-body {
-        padding: 10px;
-      }
-
-      .item-en {
-        font-size: 12px;
-      }
-
-      .item-ar {
-        font-size: 11px;
-      }
-
-      .item-desc {
-        font-size: 10.5px;
-      }
-
-      .item-price {
-        font-size: 15px;
-        padding: 2px 10px;
-      }
-
-      .extras-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .extras-item-name {
-        font-size: 11px;
-      }
-
-      .extras-item-price {
-        font-size: 11px;
-      }
-
-      .cv-header h2 {
-        font-size: 22px;
-      }
-
-      .cv-header .cv-ar {
-        font-size: 14px;
-      }
-
-      .cats-header h2 {
-        font-size: 26px;
-      }
-
-      #btt {
-        width: 36px;
-        height: 36px;
-        font-size: 12px;
-        bottom: 12px;
-        left: 12px;
-      }
-    }
-
-    /* ─── Ultra-wide screens ─── */
+    /* ═══════════════════════════════════
+   RESPONSIVE — Comprehensive
+═══════════════════════════════════ */
+
+    /* ─── Large Desktop ─── */
     @media (min-width: 1600px) {
-
       #categories,
-      #categoryView {
-        max-width: 1500px;
-      }
-
-      .cats-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .items-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      #categoryView { max-width: 1500px; }
+      .cats-grid { grid-template-columns: repeat(2, 1fr); }
+      .items-grid { grid-template-columns: repeat(2, 1fr); }
     }
+
+    /* ─── Tablet Landscape / Small Laptop (1024px) ─── */
+    @media (max-width: 1024px) {
+      #categories, #categoryView {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+      .cats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .items-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    }
+
+    /* ─── Tablet Landscape Orientation ─── */
+    @media (max-width: 1024px) and (orientation: landscape) {
+      .hero { min-height: auto; padding: 90px 40px 60px; }
+      .hero-logo { width: 120px; height: 120px; }
+      .hero-cta-group { flex-direction: row; gap: 16px; }
+      .hero-cta { min-width: auto; padding: 13px 28px; font-size: 13px; }
+    }
+
+    /* ─── Tablet Portrait (768px) ─── */
+    @media (max-width: 768px) {
+      .nav { height: 62px; padding: 0 16px; }
+      .nav.scrolled { height: 56px; }
+      .nav-brand img { width: 36px; height: 36px; }
+      .nav-brand-text { font-size: 16px; }
+      .nav-back { padding: 6px 14px; font-size: 12px; }
+
+      .hero { min-height: 100svh; padding: 80px 20px 70px; }
+      .hero-logo { width: 160px; height: 160px; padding: 6px; }
+      .hero-cta-group { gap: 14px; }
+      .hero-cta { padding: 14px 36px; font-size: 14px; min-width: min(260px, 88vw); }
+
+      .cats-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .cat-card { aspect-ratio: 16/10; }
+      .cat-card-name { font-size: 22px; }
+      .cat-card-name-ar { font-size: 16px; }
+
+      .items-grid { grid-template-columns: 1fr; gap: 14px; }
+      .item-body { padding: 14px; }
+      .item-en { font-size: 15px; }
+      .item-ar { font-size: 14px; }
+      .item-price { font-size: 20px; padding: 4px 14px; }
+
+      .extras-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+      .cv-header h2 { font-size: 36px; }
+      .cv-header .cv-ar { font-size: 20px; }
+    }
+
+    /* ─── Large Phones (600px) ─── */
+    @media (max-width: 600px) {
+      .nav { height: 56px; padding: 0 12px; }
+      .nav.scrolled { height: 52px; }
+      .nav-brand img { width: 32px; height: 32px; }
+      .nav-brand-text { font-size: 14px; letter-spacing: 0; }
+      .nav-back { padding: 6px 12px; font-size: 11px; gap: 4px; }
+      .nav-back svg { width: 14px; height: 14px; }
+
+      .hero { min-height: 100svh; padding: 70px 16px 70px; }
+      .hero-logo { width: 130px; height: 130px; padding: 5px; margin-bottom: 16px; }
+      .hero-eyebrow { font-size: 9px; letter-spacing: 4px; margin-bottom: 10px; }
+      .hero-title { font-size: 36px; }
+      .hero-title em { font-size: 17px; }
+      .hero-sub { font-size: 13px; margin: 10px 0 16px; letter-spacing: 1px; }
+      .divider { width: min(200px, 70vw); }
+      .hero-cta-group { margin-top: 18px; gap: 12px; }
+      .hero-cta {
+        padding: 13px 24px;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        width: min(280px, 90vw);
+        justify-content: center;
+      }
+      .hero-scroll-hint { bottom: 16px; font-size: 20px; }
+
+      .cats-header h2 { font-size: 30px; }
+      .cats-header .sec-tag { letter-spacing: 4px; font-size: 10px; }
+      .cats-grid { grid-template-columns: 1fr; gap: 12px; }
+      .cat-card { aspect-ratio: 16/8; }
+      .cat-card-content { padding: 16px; }
+      .cat-card-name { font-size: 24px; }
+      .cat-card-name-ar { font-size: 15px; margin-bottom: 6px; }
+      .cat-card-count { font-size: 11px; padding: 3px 12px; }
+      .cat-card-arrow { width: 34px; height: 34px; top: 14px; left: 14px; }
+      .cat-card-arrow svg { width: 14px; height: 14px; }
+
+      #categoryView { padding: 76px 12px 40px; }
+      .cv-header h2 { font-size: 28px; }
+      .cv-header .cv-ar { font-size: 16px; }
+      .cv-header .cv-icon { width: 48px; height: 48px; }
+
+      .items-grid { grid-template-columns: 1fr; gap: 12px; }
+      .item-card { border-radius: 12px; }
+      .item-img { width: 105px; }
+      .item-body { padding: 12px; gap: 6px; }
+      .item-names { flex-direction: column; gap: 2px; align-items: flex-end; }
+      .item-en { font-size: 13px; text-align: left; }
+      .item-ar { font-size: 13px; }
+      .item-desc { font-size: 11px; line-height: 1.7; }
+      .item-price { font-size: 17px; padding: 3px 12px; }
+      .item-price::after { font-size: .5em; }
+
+      .extras-box { border-radius: 12px; }
+      .extras-top { padding: 12px 16px; }
+      .extras-top-title { font-size: 14px; letter-spacing: 3px; }
+      .extras-grid { grid-template-columns: 1fr 1fr; }
+      .extras-item { padding: 10px 14px; }
+      .extras-item-name { font-size: 12px; }
+      .extras-item-price { font-size: 12px; padding: 2px 10px; }
+
+      #btt { width: 40px; height: 40px; bottom: 16px; left: 16px; font-size: 14px; }
+    }
+
+    /* ─── Small Phones (480px) ─── */
+    @media (max-width: 480px) {
+      .hero { padding: 65px 14px 65px; }
+      .hero-logo { width: 110px; height: 110px; margin-bottom: 14px; }
+      .hero-title { font-size: 30px; }
+      .hero-title em { font-size: 15px; }
+      .hero-sub { font-size: 12px; }
+      .hero-cta { font-size: 12px; padding: 12px 20px; }
+
+      .cat-card { aspect-ratio: 16/7; }
+      .cat-card-name { font-size: 22px; }
+
+      .item-img { width: 90px; }
+      .item-en { font-size: 12px; }
+      .item-ar { font-size: 12px; }
+      .item-desc { font-size: 10.5px; }
+      .item-price { font-size: 15px; }
+
+      .cv-header h2 { font-size: 24px; }
+      .cv-header .cv-ar { font-size: 14px; }
+      .cv-header .cv-icon { width: 40px; height: 40px; }
+    }
+
+    /* ─── Very Small Phones (380px) ─── */
+    @media (max-width: 380px) {
+      .nav-brand-text { font-size: 13px; }
+      .nav-brand img { width: 28px; height: 28px; }
+
+      .hero { padding: 60px 12px 60px; }
+      .hero-logo { width: 100px; height: 100px; margin-bottom: 12px; }
+      .hero-eyebrow { font-size: 8px; letter-spacing: 3px; }
+      .hero-title { font-size: 27px; }
+      .hero-title em { font-size: 14px; }
+      .hero-sub { font-size: 11.5px; margin: 8px 0 14px; }
+      .hero-cta-group { gap: 10px; margin-top: 14px; }
+      .hero-cta { padding: 11px 16px; font-size: 11.5px; letter-spacing: 0; width: min(255px, 92vw); gap: 7px; }
+      .hero-cta svg { width: 15px; height: 15px; }
+
+      .cats-header h2 { font-size: 26px; }
+      .cat-card-name { font-size: 20px; }
+      .cat-card-name-ar { font-size: 13px; }
+
+      .item-img { width: 80px; }
+      .item-body { padding: 10px; }
+      .item-en { font-size: 11.5px; }
+      .item-ar { font-size: 11px; }
+      .item-desc { font-size: 10px; }
+      .item-price { font-size: 14px; padding: 2px 10px; }
+
+      .extras-grid { grid-template-columns: 1fr; }
+      .extras-item-name { font-size: 11px; }
+      .extras-item-price { font-size: 11px; }
+
+      .cv-header h2 { font-size: 22px; }
+      .cv-header .cv-ar { font-size: 13px; }
+      #btt { width: 36px; height: 36px; font-size: 12px; bottom: 12px; left: 12px; }
+    }
+
+    /* ─── Ultra Small (320px — iPhone 5 / Galaxy S5) ─── */
+    @media (max-width: 320px) {
+      .hero-logo { width: 85px; height: 85px; }
+      .hero-title { font-size: 24px; }
+      .hero-title em { font-size: 13px; }
+      .hero-cta { font-size: 10.5px; padding: 10px 13px; }
+      .hero-cta svg { display: none; }
+      .item-img { width: 70px; }
+      .item-en { font-size: 11px; }
+      .item-ar { font-size: 10.5px; }
+      .item-desc { font-size: 9.5px; }
+      .item-price { font-size: 13px; }
+      .cv-header h2 { font-size: 20px; }
+    }
+
   </style>
 </head>
 
@@ -1592,14 +1262,17 @@
       {
         id: 'burgers', name: 'Burgers', nameAr: 'البرجر', img: 'images/categories/burgers.png',
         items: [
-          { en: 'CLASSIC BURGER', ar: 'برجر كلاسيك', desc: 'لحم برجر - خس - طماطم - خيار مخلل - مايونيز - كاتشب - مستردة - برجر بان - يقدم مع بطاطس', price: 120, img: 'images/items/burgers_classic.png' },
-          { en: 'CHEESE BURGER', ar: 'برجر جبنه', desc: 'لحم برجر - جبنة شيدر - خس - طماطم - خيار مخلل - مايونيز - برجر بان - يقدم مع بطاطس', price: 130, img: 'images/items/burgers_cheese.png' },
-          { en: 'HAKUNA MATATA BURGER', ar: 'برجر هاكونا ماتاتا', desc: 'لحم برجر - صوص هاكونا الخاص - بصل مكرمل - جبنة شيدر - خس - طماطم - برجر بان - يقدم مع بطاطس', price: 155, img: 'images/items/burgers_hakuna_matata.png' },
-          { en: 'DOUBLE CLASSIC', ar: 'برجر دبل كلاسيك', desc: 'باتي مزدوج - خس - طماطم - خيار مخلل - مايونيز - كاتشب - برجر بان - يقدم مع بطاطس', price: 150, img: 'images/items/burgers_double_classic.png' },
-          { en: 'DOUBLE HAKUNA', ar: 'برجر دبل هاكونا', desc: 'باتي مزدوج - صوص هاكونا الخاص - بصل مكرمل - جبنة شيدر - خس - طماطم - برجر بان - يقدم مع بطاطس', price: 175, img: 'images/items/burgers_double_hakuna.png' },
-          { en: 'CLASSIC CHICKEN BURGER', ar: 'برجر فراخ كلاسيك', desc: 'صدور فراخ مقرمشة - خس - طماطم - خيار مخلل - مايونيز - برجر بان - يقدم مع بطاطس', price: 120, img: 'images/items/burgers_chicken_classic.png' },
-          { en: 'CHICKEN CHEESE BURGER', ar: 'برجر فراخ جبنه', desc: 'صدور فراخ مقرمشة - جبنة شيدر - خس - طماطم - خيار مخلل - مايونيز - برجر بان - يقدم مع بطاطس', price: 130, img: 'images/items/burgers_chicken_cheese.png' },
-          { en: 'PASTRAMI BURGER', ar: 'برجر بسطرمه', desc: 'لحم برجر - بسطرمة - جبنة شيدر - بصل مكرمل - مايونيز - برجر بان - يقدم مع بطاطس', price: 145, img: 'images/items/burgers_pastrami.png' }
+          // ─── Beef Singles ───────────────────────────────
+          { en: 'CLASSIC BURGER',        ar: 'برجر كلاسيك',        desc: 'لحم برجر - خس - طماطم - خيار مخلل - مايونيز - كاتشب - مستردة - برجر بان - يقدم مع بطاطس',                          price: 120, img: 'images/items/burgers_classic.png' },
+          { en: 'CHEESE BURGER',         ar: 'برجر جبنه',           desc: 'لحم برجر - جبنة شيدر - خس - طماطم - خيار مخلل - مايونيز - برجر بان - يقدم مع بطاطس',                              price: 130, img: 'images/items/burgers_cheese.png' },
+          { en: 'PASTRAMI BURGER',       ar: 'برجر بسطرمه',         desc: 'لحم برجر - بسطرمة - جبنة شيدر - بصل مكرمل - مايونيز - برجر بان - يقدم مع بطاطس',                                  price: 145, img: 'images/items/burgers_pastrami.png' },
+          { en: 'HAKUNA MATATA BURGER',  ar: 'برجر هاكونا ماتاتا',  desc: 'لحم برجر - صوص هاكونا الخاص - بصل مكرمل - جبنة شيدر - خس - طماطم - برجر بان - يقدم مع بطاطس',                    price: 155, img: 'images/items/burgers_hakuna_matata.png' },
+          // ─── Beef Doubles ───────────────────────────────
+          { en: 'DOUBLE CLASSIC',        ar: 'برجر دبل كلاسيك',     desc: 'باتي مزدوج - خس - طماطم - خيار مخلل - مايونيز - كاتشب - برجر بان - يقدم مع بطاطس',                               price: 150, img: 'images/items/burgers_double_classic.png' },
+          { en: 'DOUBLE HAKUNA',         ar: 'برجر دبل هاكونا',      desc: 'باتي مزدوج - صوص هاكونا الخاص - بصل مكرمل - جبنة شيدر - خس - طماطم - برجر بان - يقدم مع بطاطس',                  price: 175, img: 'images/items/burgers_double_hakuna.png' },
+          // ─── Chicken ────────────────────────────────────
+          { en: 'CLASSIC CHICKEN BURGER',ar: 'برجر فراخ كلاسيك',    desc: 'صدور فراخ مقرمشة - خس - طماطم - خيار مخلل - مايونيز - برجر بان - يقدم مع بطاطس',                                 price: 120, img: 'images/items/burgers_chicken_classic.png' },
+          { en: 'CHICKEN CHEESE BURGER', ar: 'برجر فراخ جبنه',       desc: 'صدور فراخ مقرمشة - جبنة شيدر - خس - طماطم - خيار مخلل - مايونيز - برجر بان - يقدم مع بطاطس',                    price: 130, img: 'images/items/burgers_chicken_cheese.png' }
         ],
         extras: [
           { name: 'بيف بيكون', price: 25 }, { name: '٢ موتزريلا استيكس', price: 25 },
@@ -1611,12 +1284,14 @@
       {
         id: 'sandwiches', name: 'Sandwiches', nameAr: 'الساندوتشات', img: 'images/categories/sandwiches.png',
         items: [
-          { en: 'HAWAWSHI CHEESE', ar: 'حواوشي جبنه', desc: 'لحم حواوشي - جبنة شيدر - عيش بلدي - صوص طحينة - يقدم مع بطاطس ومخلل', price: 85, img: 'images/items/sandwiches_hawawshi_cheese.png' },
-          { en: 'HAWAWSHI', ar: 'حواوشي', desc: 'لحم حواوشي - عيش بلدي - صوص طحينة - يقدم مع بطاطس ومخلل', price: 75, img: 'images/items/sandwiches_hawawshi.png' },
-          { en: 'KOFTA', ar: 'كفته', desc: 'كفتة - طحينة - بصل احمر بالسماق - جرجير - يقدم مع بطاطس ومخلل', price: 90, img: 'images/items/sandwiches_kofta.png' },
-          { en: 'HOT DOG', ar: 'هوت دوج', desc: 'هوت دوج - فلفل ألوان - طماطم - خس - بصل - مستردة - كاتشب - يقدم مع بطاطس ومخلل', price: 75, img: 'images/items/sandwiches_hot_dog.png' },
-          { en: 'SYRIAN POTATO', ar: 'ساندوتش بطاطس سوري', desc: 'بطاطس - فلفل ألوان - طماطم - خس - بصل - مايونيز - كاتشب', price: 45, img: 'images/items/sandwiches_syrian_potato.png' },
-          { en: 'FETYA', ar: 'فتيا', desc: 'فتيا - لحم مفروم - صوص طماطم - يقدم مع بطاطس ومخلل', price: 80, img: 'images/items/sandwiches_fetya.png' }
+          // ─── Classic Meat ────────────────────────────────
+          { en: 'HAWAWSHI',        ar: 'حواوشي',               desc: 'لحم حواوشي - عيش بلدي - صوص طحينة - يقدم مع بطاطس ومخلل',                                           price: 75, img: 'images/items/sandwiches_hawawshi.png' },
+          { en: 'HAWAWSHI CHEESE', ar: 'حواوشي جبنه',           desc: 'لحم حواوشي - جبنة شيدر - عيش بلدي - صوص طحينة - يقدم مع بطاطس ومخلل',                               price: 85, img: 'images/items/sandwiches_hawawshi_cheese.png' },
+          { en: 'KOFTA',           ar: 'كفته',                  desc: 'كفتة - طحينة - بصل احمر بالسماق - جرجير - يقدم مع بطاطس ومخلل',                                     price: 90, img: 'images/items/sandwiches_kofta.png' },
+          { en: 'FETYA',           ar: 'فتيا',                  desc: 'فتيا - لحم مفروم - صوص طماطم - يقدم مع بطاطس ومخلل',                                                price: 80, img: 'images/items/sandwiches_fetya.png' },
+          // ─── Light / Quick ───────────────────────────────
+          { en: 'HOT DOG',         ar: 'هوت دوج',               desc: 'هوت دوج - فلفل ألوان - طماطم - خس - بصل - مستردة - كاتشب - يقدم مع بطاطس ومخلل',                    price: 75, img: 'images/items/sandwiches_hot_dog.png' },
+          { en: 'SYRIAN POTATO',   ar: 'ساندوتش بطاطس سوري',    desc: 'بطاطس - فلفل ألوان - طماطم - خس - بصل - مايونيز - كاتشب',                                          price: 45, img: 'images/items/sandwiches_syrian_potato.png' }
         ],
         extras: [
           { name: 'بيف بيكون', price: 25 }, { name: '٢ موتزريلا استيكس', price: 25 },
