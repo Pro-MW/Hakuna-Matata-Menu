@@ -1568,12 +1568,7 @@
       <img src="logo.png" alt="Hakuna Matata Logo">
       <span class="nav-brand-text">HAKUNA <span>MATATA</span></span>
     </a>
-    <button class="nav-back" id="navBack" onclick="goHome()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-        <polyline points="15 18 9 12 15 6" />
-      </svg>
-      القائمة الرئيسية
-    </button>
+
   </nav>
 
   <!-- ═══════ HERO ═══════ -->
@@ -1761,7 +1756,7 @@
     const itemsGrid = document.getElementById('itemsGrid');
     const extrasBox = document.getElementById('extrasBox');
     const appetizersSection = document.getElementById('appetizersSection');
-    const navBack = document.getElementById('navBack');
+
     const catsSec = document.getElementById('categories');
     const hero = document.getElementById('hero');
 
@@ -1873,7 +1868,6 @@
       catsSec.style.display = 'none';
       catView.classList.add('show');
       catView.style.display = 'block';
-      navBack.classList.add('show');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
@@ -1883,7 +1877,6 @@
       catView.style.display = 'none';
       hero.style.display = '';
       catsSec.style.display = '';
-      navBack.classList.remove('show');
       window.scrollTo({ top: document.getElementById('categories').offsetTop - 80, behavior: 'smooth' });
     }
 
